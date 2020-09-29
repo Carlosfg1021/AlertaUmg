@@ -9,13 +9,35 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-99dp">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="170dp"
+            android:src="@drawable/llogin" />
 
-       <com.google.android.gms.common.SignInButton
-           android:layout_width="320dp"
-           android:layout_height="80dp"/>
+        <com.google.android.gms.common.SignInButton
+            android:layout_width="320dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true" />
 
     </RelativeLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
