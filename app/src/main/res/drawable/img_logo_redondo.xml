@@ -3,5 +3,4 @@
 
     <item android:drawable="@drawable/llogin"/>
     <item android:drawable="@drawable/logo_redondo"/>
-
 </layer-list>
