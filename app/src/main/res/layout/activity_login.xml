@@ -11,43 +11,57 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints"
+        android:background="@drawable/fondoapor"
         tools:layout_editor_absoluteX="-133dp"
         tools:layout_editor_absoluteY="-3dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="348dp"
-            android:src="@drawable/fondo" />
+        <EditText
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txtcorreo"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Correo"
+            android:background="@drawable/style_editext"
+            android:ems="10"
+            android:layout_marginTop="440dp"
+            android:layout_marginLeft="90dp"/>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="132dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="120dp"
-            android:src="@drawable/llogin" />
+
+        <EditText
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txtpassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:background="@drawable/style_editext"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:layout_marginTop="500dp"
+            android:layout_marginLeft="90dp"/>
+
+
+        <Button
+            android:layout_centerHorizontal="true"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="560dp"
+            android:text="Login"
+            android:background="@drawable/style_botones"
+            android:layout_marginLeft="90dp"/>
+
 
         <com.google.android.gms.common.SignInButton
-            android:layout_width="320dp"
-            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="250dp"
+            android:background="@drawable/style_google"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="360dp" />
-
-
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="79dp"
+            android:layout_marginTop="670dp"
+            />
 
     </RelativeLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

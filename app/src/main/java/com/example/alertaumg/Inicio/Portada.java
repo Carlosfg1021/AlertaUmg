@@ -22,6 +22,6 @@ public class Portada extends AppCompatActivity {
                 Intent intent = new Intent(Portada.this, Login.class);
                 startActivity(intent);
             }
-        }, 3000);
+        }, 2000);
     }
 }
