@@ -73,6 +73,180 @@
 
                </LinearLayout>
 
+               <!-- BOTONES TIPOS DE ALERTA FILA 1 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/btnAlertaRobo"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/alerta_robo"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp">
+
+                    </ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/btnAlertaVandalismo"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/alerta_vandalismo"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp">
+                    </ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/btnAlertaAgresion"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/alerta_agresion"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp">
+                    </ImageButton>
+
+                </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dp"
+                   >
+
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="25dp"
+                       android:layout_weight="1"
+                       android:text="ROBO"
+                       android:textSize="18dp"
+                       android:textStyle="bold"
+                       android:textColor="@android:color/black"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginRight="5dp">
+                   </TextView>
+
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="25dp"
+                       android:layout_weight="1"
+                       android:text="VANDALISMO"
+                       android:textStyle="bold"
+                       android:textColor="@android:color/black"
+                       android:textSize="18dp"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginRight="5dp">
+                   </TextView>
+
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="25dp"
+                       android:layout_weight="1"
+                       android:textSize="18dp"
+                       android:text="AGRESIÓN"
+                       android:textStyle="bold"
+                       android:textColor="@android:color/black"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginRight="5dp">
+                   </TextView>
+
+
+
+               </LinearLayout>
+
+               <!-- BOTONES TIPOS DE ALERTA FILA 2 -->
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="20dp"
+                   >
+
+                   <ImageButton
+                       android:id="@+id/btnAlertaAgresionSexual"
+                       android:layout_width="0dp"
+                       android:layout_height="100dp"
+                       android:layout_weight="1"
+                       android:background="@drawable/alerta_agresion_sexual"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginRight="5dp">
+
+                   </ImageButton>
+
+                   <ImageButton
+                       android:id="@+id/btnAlertaViolenciaGenero"
+                       android:layout_width="0dp"
+                       android:layout_height="100dp"
+                       android:layout_weight="1"
+                       android:background="@drawable/alerta_violencia_genero"
+                       android:layout_marginLeft="5dp"
+                       android:layout_marginRight="5dp">
+                   </ImageButton>
+
+                   <ImageButton
+                       android:id="@+id/btnAlertaAcosoEscolar"
+                       android:layout_width="0dp"
+                       android:layout_height="100dp"
+                       android:layout_weight="1"
+                       android:background="@drawable/alerta_acoso_escolar"
+                       android:layout_marginLeft="5dp"
+                       android:layout_marginRight="10dp">
+                   </ImageButton>
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dp"
+                   >
+
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="45dp"
+                       android:layout_weight="1"
+                       android:text="AGRESIÓN SEXUAL"
+                       android:textSize="18dp"
+                       android:textStyle="bold"
+                       android:textColor="@android:color/black"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginRight="5dp">
+                   </TextView>
+
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="45dp"
+                       android:layout_weight="1"
+                       android:text="VIOLENCIA DE GÉNERO"
+                       android:textStyle="bold"
+                       android:textColor="@android:color/black"
+                       android:textSize="18dp"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginRight="5dp">
+                   </TextView>
+
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="45dp"
+                       android:layout_weight="1"
+                       android:textSize="18dp"
+                       android:text="ACOSO ESCOLAR"
+                       android:textStyle="bold"
+                       android:textColor="@android:color/black"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginRight="5dp">
+                   </TextView>
+
+
+
+               </LinearLayout>
+
 
            </LinearLayout>
 
