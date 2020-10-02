@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/btn_nav_alerta_rapida"
+        android:title="Alerta Rápida"
+        android:icon="@drawable/ic_flotante_alerta_rapida"/>
+
+    <item android:id="@+id/btn_nav_alerta_especifica"
+        android:title="Alerta específica"
+        android:icon="@drawable/ic_flotante_alerta_rapida"/>
+
+    <item android:id="@+id/btn_nav_mi_perfil"
+        android:title="Mi perfil"
+        android:icon="@drawable/ic_flotante_perfil_usuario"/>
+
+    <item android:id="@+id/btn_nav_notification"
+        android:title="Notificaciones"
+        android:icon="@drawable/ic_flotante_notificacion"/>
+
+</menu>
