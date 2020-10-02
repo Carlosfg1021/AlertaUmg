@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.alertaumg.BotonPanico;
+import com.example.alertaumg.Funcionalidad.RegistroUsuario;
 import com.example.alertaumg.R;
+import com.example.alertaumg.TipoAlerta;
 
 public class Portada extends AppCompatActivity {
 

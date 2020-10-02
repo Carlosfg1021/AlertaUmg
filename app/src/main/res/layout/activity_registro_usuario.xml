@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        >
+
+
+
+        <ImageView
+            android:id="@+id/editarImagenPortada"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#03a9fa"
+            android:scaleType="centerCrop"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/editarImagenPerfil"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="45dp"
+        android:src="@drawable/editarboton"
+
+        />
+
+    <TextView
+        android:id="@+id/editarNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="150dp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="175dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:text="Usuario"
+                android:textStyle="bold"
+                android:textSize="26dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Email"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="correo@gmail.com"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Contraseña"
+                android:textSize="20dp"
+
+                />
+
+            <EditText
+                android:id="@+id/txtContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="****"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:text="Datos personales"
+                android:textStyle="bold"
+                android:textSize="26dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Nombre"
+                android:textSize="20dp"
+
+                />
+            <EditText
+                android:id="@+id/txtNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="Nombre"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Apellido"
+                android:textSize="20dp"
+
+                />
+            <EditText
+                android:id="@+id/txtApellido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="Apellido"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Departamento"
+                android:textSize="20dp"
+
+                />
+            <Spinner
+                android:id="@+id/sprDepartamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="Seleccione departamento"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Municipio"
+                android:textSize="20dp"
+
+                />
+            <Spinner
+                android:id="@+id/sprMunicipio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="Seleccione municipio"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Dirección"
+                android:textSize="20dp"
+
+                />
+            <EditText
+                android:id="@+id/txtDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="Direccion"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+
+
+
+
+
+
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+            <!-- background="@color/grey"-->
+
+
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="35dp"
+
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/boton_redondo_celeste"
+                android:text="Registrarme" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
