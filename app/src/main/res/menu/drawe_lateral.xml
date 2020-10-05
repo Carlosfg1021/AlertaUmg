@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIN="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/btn_nav_alerta_rapida"
+            android:icon="@drawable/ic_alerta_r"
+            android:title="Alerta Rapida"/>
+
+        <item android:id="@+id/btn_nav_alerta_especifica"
+            android:icon="@drawable/ic_tip"
+            android:title="Alerta Especifica"/>
+
+        <item android:id="@+id/btn_nav_mi_perfil"
+        android:icon="@drawable/ic_perfil"
+        android:title="Perfil"/>
+
+        <item android:id="@+id/btn_nav_notification"
+            android:icon="@drawable/ic_notificacion"
+            android:title="Notificaciones"/>
+
+    </group>
+
+    <item android:title="Otros">
+        <menu>
+           <item android:id="@+id/btn_acercade"
+               android:icon="@drawable/ic_cerrar"
+               android:title="Acerca de"/>
+            <item android:id="@+id/btn_cerrar"
+                android:icon="@drawable/ic_acercade"
+                android:title="Acerca de"/>
+        </menu>
+    </item>
+
+</menu>

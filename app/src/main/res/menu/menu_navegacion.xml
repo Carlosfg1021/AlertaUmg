@@ -3,18 +3,18 @@
 
     <item android:id="@+id/btn_nav_alerta_rapida"
         android:title="Alerta Rápida"
-        android:icon="@drawable/ic_flotante_alerta_rapida"/>
+        android:icon="@drawable/ic_alerta_r"/>
 
     <item android:id="@+id/btn_nav_alerta_especifica"
         android:title="Alerta específica"
-        android:icon="@drawable/ic_flotante_alerta_rapida"/>
+        android:icon="@drawable/ic_tip"/>
 
     <item android:id="@+id/btn_nav_mi_perfil"
         android:title="Mi perfil"
-        android:icon="@drawable/ic_flotante_perfil_usuario"/>
+        android:icon="@drawable/ic_perfil"/>
 
     <item android:id="@+id/btn_nav_notification"
         android:title="Notificaciones"
-        android:icon="@drawable/ic_flotante_notificacion"/>
+        android:icon="@drawable/ic_notificacion"/>
 
 </menu>
