@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
-public class Contenedor extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class Contenedor extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener{
 
     BottomNavigationView menuNavegacion;
+    com.google.android.material.navigation.NavigationView menuLateral;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,38 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
         menuNavegacion.setOnNavigationItemSelectedListener(this);
+
+        menuLateral = findViewById(R.id.navigationId);
+        menuLateral.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment = null;
+
+                switch (item.getItemId()){
+                    case R.id.btn_nav_alerta_rapida_iz:
+                        fragment = new BotonPanico();
+                        menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
+                        break;
+                    case R.id.btn_nav_alerta_especifica_iz:
+                        fragment = new TipoAlerta();
+                        menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_especifica);
+                        break;
+                    case R.id.btn_nav_mi_perfil_iz:
+                        fragment = new Perfil();
+                        menuNavegacion.setSelectedItemId(R.id.btn_nav_mi_perfil);
+                        break;
+                    case R.id.btn_nav_notification_iz:
+                        fragment = new Notificaciones();
+                        menuNavegacion.setSelectedItemId(R.id.btn_nav_notification);
+                        break;
+
+                }
+                return cargarFragmento(fragment);
+
+            }
+        });
+
+
     }
 
     public boolean cargarFragmento(Fragment fragment){

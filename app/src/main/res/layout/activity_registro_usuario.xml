@@ -10,7 +10,6 @@
         >
 
 
-
         <ImageView
             android:id="@+id/editarImagenPortada"
             android:layout_width="match_parent"

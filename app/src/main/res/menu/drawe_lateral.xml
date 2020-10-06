@@ -4,19 +4,19 @@
     tools:showIN="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/btn_nav_alerta_rapida"
+        <item android:id="@+id/btn_nav_alerta_rapida_iz"
             android:icon="@drawable/ic_alerta_r"
             android:title="Alerta Rapida"/>
 
-        <item android:id="@+id/btn_nav_alerta_especifica"
+        <item android:id="@+id/btn_nav_alerta_especifica_iz"
             android:icon="@drawable/ic_tip"
             android:title="Alerta Especifica"/>
 
-        <item android:id="@+id/btn_nav_mi_perfil"
+        <item android:id="@+id/btn_nav_mi_perfil_iz"
         android:icon="@drawable/ic_perfil"
         android:title="Perfil"/>
 
-        <item android:id="@+id/btn_nav_notification"
+        <item android:id="@+id/btn_nav_notification_iz"
             android:icon="@drawable/ic_notificacion"
             android:title="Notificaciones"/>
 
@@ -29,7 +29,7 @@
                android:title="Acerca de"/>
             <item android:id="@+id/btn_cerrar"
                 android:icon="@drawable/ic_acercade"
-                android:title="Acerca de"/>
+                android:title="Cerrar"/>
         </menu>
     </item>
 
