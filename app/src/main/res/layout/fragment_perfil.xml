@@ -1,14 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="150dp"
+        >
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/personaImagenPortada"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/fondo"
+            android:scaleType="centerCrop"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/personaImagenPerfil"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/imagen_perfil"
+        />
+
+    <TextView
+        android:id="@+id/personaNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre_apellido"
+        android:textSize="23sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="130dp"
+        />
+
+    <Button
+        android:id="@+id/btnEditarPerfil"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="150dp"
+        android:background="@drawable/boton_redondo_celeste"
+        android:text="Editar Perfil"
+        android:textColor="@color/blanco" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Datos personales"
+                android:textColor="@color/heading"
+                android:textStyle="bold"
+                android:textSize="26sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Nombre"
+                android:textColor="@color/heading"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lblNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:text="lblNombre"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Apellido"
+                android:textColor="@color/heading"
+                android:textSize="20sp"
+
+                />
+
+            <TextView
+                android:id="@+id/lblApellido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:text="lblApellido"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Departamento"
+                android:textColor="@color/heading"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lblDepartamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:text="lblDepartamento"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Municipio"
+                android:textColor="@color/heading"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lblMunicipio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:text="lblMunicipio"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Direccion"
+                android:textColor="@color/heading"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lblDireccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:text="lblDireccion"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/boton_redondo_rojo"
+                android:text="Cerrar sesión"
+                android:textColor="@color/blanco" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
