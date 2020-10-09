@@ -25,18 +25,6 @@
 
     </LinearLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/navigationId"
-        android:fitsSystemWindows="true"
-        app:menu="@menu/drawe_lateral"
-        android:layout_gravity="start|left"
-        app:headerLayout="@layout/nav_header"
-
-        >
-
-    </com.google.android.material.navigation.NavigationView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -61,6 +49,20 @@
             />
 
     </RelativeLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navigationId"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/drawe_lateral"
+        android:layout_gravity="start|left"
+        app:headerLayout="@layout/nav_header"
+
+        >
+
+    </com.google.android.material.navigation.NavigationView>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

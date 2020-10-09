@@ -31,13 +31,38 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         setContentView(R.layout.activity_contenedor);
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
-        menuNavegacion.setOnNavigationItemSelectedListener(this);
+        //menuNavegacion.setOnNavigationItemSelectedListener(this);
 
         setToolBar();
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        menuLateral = findViewById(R.id.navigationId);
 
+        menuNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment = null;
+
+                switch (item.getItemId()){
+                    case R.id.btn_nav_alerta_rapida:
+                        fragment = new BotonPanico();
+                        break;
+                    case R.id.btn_nav_alerta_especifica:
+                        fragment = new TipoAlerta();
+                        break;
+                    case R.id.btn_nav_mi_perfil:
+                        fragment = new Perfil();
+                        break;
+                    case R.id.btn_nav_notification:
+                        fragment = new Notificaciones();
+                        break;
+
+                }
+
+                return cargarFragmento(fragment);
+            }
+        });
+
+        menuLateral = findViewById(R.id.navigationId);
 
         menuLateral.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -64,10 +89,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
 
                 }
                 return cargarFragmento(fragment);
-
             }
         });
-
 
     }
 
@@ -109,6 +132,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
 
     }
 
+
     private void setToolBar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -127,8 +151,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
 
 
         }
-
         return super.onOptionsItemSelected(item);
+
     }
 
 }
