@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -79,7 +80,7 @@
                 android:layout_marginTop="3dp"
                 android:fontFamily="sans-serif"
                 android:hint="Nombre"
-                android:ems="10"
+                android:ems="15"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -101,7 +102,7 @@
                 android:layout_marginTop="3dp"
                 android:fontFamily="sans-serif"
                 android:hint="Apellido"
-                android:ems="10"
+                android:ems="15"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -114,16 +115,17 @@
                 android:textSize="20sp" />
 
             <Spinner
-                android:id="@+id/cbxDepartamento"
+                android:id="@+id/sprDepartamento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="3dp"
                 android:fontFamily="sans-serif"
                 android:hint="Departamento"
-                android:ems="10"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="18dp"
+                android:visibility="visible"
+                tools:visibility="visible" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -134,7 +136,7 @@
                 android:textSize="20sp" />
 
             <Spinner
-                android:id="@+id/cbxMunicipio"
+                android:id="@+id/sprMunicipio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -161,16 +163,16 @@
                 android:layout_marginTop="3dp"
                 android:fontFamily="sans-serif"
                 android:hint="Direccion"
-                android:ems="10"
+                android:ems="15"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btnLogout"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="130dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/boton_redondo_rojo"
                 android:text="Guardar"
