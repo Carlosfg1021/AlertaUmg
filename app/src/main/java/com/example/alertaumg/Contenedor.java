@@ -62,7 +62,9 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
             }
         });
 
-        menuLateral = findViewById(R.id.navigationId);
+        menuLateral = findViewById(R.id.navigationId);//Obtenemos el objeto del xml
+
+    //Añadimos evento para cargar la opcion seleccionada del menu en el contenedor principal
 
         menuLateral.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -73,19 +75,26 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                     case R.id.btn_nav_alerta_rapida_iz:
                         fragment = new BotonPanico();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
+                        drawerLayout.closeDrawers();
                         break;
                     case R.id.btn_nav_alerta_especifica_iz:
                         fragment = new TipoAlerta();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_especifica);
+                        drawerLayout.closeDrawers();
                         break;
                     case R.id.btn_nav_mi_perfil_iz:
                         fragment = new Perfil();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_mi_perfil);
+                        drawerLayout.closeDrawers();
                         break;
                     case R.id.btn_nav_notification_iz:
                         fragment = new Notificaciones();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_notification);
+                        drawerLayout.closeDrawers();
                         break;
+                    case R.id.btn_cerrar:
+                         drawerLayout.closeDrawers();
+                         break;
 
                 }
                 return cargarFragmento(fragment);
@@ -93,6 +102,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         });
 
     }
+
+    //Función para cargar el fragmento al contenedor principal
 
     public boolean cargarFragmento(Fragment fragment){
         if (fragment != null){
@@ -132,7 +143,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
 
     }
 
-
+//Construimos el boton para desplegar el menú de opciones
     private void setToolBar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -140,6 +151,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    //Sobreescribimos el método para redireccionar al menu de opciones desde el botón toolbar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Fragment fragment = null;
@@ -148,11 +160,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
-
-
         }
         return super.onOptionsItemSelected(item);
-
     }
 
 }
