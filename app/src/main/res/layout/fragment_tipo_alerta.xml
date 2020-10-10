@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_alignWithParentIfMissing="false"
-    android:layout_alignParentLeft="false"
-    android:layout_alignParentTop="false"
-    android:layout_alignParentBottom="false"
-    android:layout_centerInParent="false"
-    android:layout_centerHorizontal="false"
-    android:layout_centerVertical="false"
-    android:background="@drawable/fondo_blanco"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TipoAlerta">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fondo_blanco"
         android:clickable="false"
         android:orientation="vertical"
         tools:layout_marginTop="50dp">
@@ -32,12 +23,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_marginTop="44dp"
-                android:layout_marginEnd="-1dp"
-                android:layout_marginRight="-1dp"
                 android:gravity="center_horizontal"
                 android:text="Alerta Específica"
                 android:textColor="#000000"
@@ -76,7 +62,7 @@
                         android:layout_marginTop="32dp"
                         android:layout_marginBottom="32dp"
                         app:cardElevation="8dp"
-                        tools:cardCornerRadius="8dp"
+                        app:cardCornerRadius="8dp"
                         tools:layout_marginBottom="16dp"
                         tools:layout_marginTop="8dp">
 
@@ -112,7 +98,7 @@
                         android:layout_marginTop="32dp"
                         android:layout_marginBottom="32dp"
                         app:cardElevation="8dp"
-                        tools:cardCornerRadius="8dp"
+                        app:cardCornerRadius="8dp"
                         tools:layout_marginBottom="16dp"
                         tools:layout_marginTop="8dp">
 
@@ -148,7 +134,7 @@
                         android:layout_marginTop="32dp"
                         android:layout_marginBottom="32dp"
                         app:cardElevation="8dp"
-                        tools:cardCornerRadius="8dp"
+                        app:cardCornerRadius="8dp"
                         tools:layout_marginBottom="16dp"
                         tools:layout_marginTop="8dp">
 
@@ -193,7 +179,7 @@
                         android:layout_marginTop="32dp"
                         android:layout_marginBottom="32dp"
                         app:cardElevation="8dp"
-                        tools:cardCornerRadius="8dp"
+                        app:cardCornerRadius="8dp"
                         tools:layout_marginBottom="16dp">
 
                         <ImageButton
@@ -227,7 +213,7 @@
                         android:layout_marginTop="32dp"
                         android:layout_marginBottom="32dp"
                         app:cardElevation="8dp"
-                        tools:cardCornerRadius="8dp"
+                        app:cardCornerRadius="8dp"
                         tools:layout_marginBottom="16dp">
 
                         <ImageButton
@@ -262,7 +248,7 @@
                         android:layout_marginTop="32dp"
                         android:layout_marginBottom="32dp"
                         app:cardElevation="8dp"
-                        tools:cardCornerRadius="8dp"
+                        app:cardCornerRadius="8dp"
                         tools:layout_marginBottom="16dp">
 
                         <ImageButton
