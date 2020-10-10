@@ -20,6 +20,10 @@
             android:icon="@drawable/ic_notificacion"
             android:title="Notificaciones"/>
 
+        <item android:id="@+id/btn_nav_usuarios_iz"
+            android:icon="@drawable/ic_usuarios"
+            android:title="Usuarios de Confianza"/>
+
     </group>
 
     <item android:title="Otros">
