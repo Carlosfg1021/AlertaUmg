@@ -3,27 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UsuarioConfianza">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        >
 
         <EditText
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="50dp"
+
+            android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Buscar"
+            android:hint="Buscar"
             android:background="@drawable/boton_redondo_gris"
             />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="9dp"
-            android:layout_marginBottom="60dp"
-
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="40dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
@@ -32,7 +35,7 @@
             />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </FrameLayout>

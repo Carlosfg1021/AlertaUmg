@@ -57,7 +57,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                         break;
 
                     case R.id.btn_nav_usuariosconfianza:
-                        fragment = new Notificaciones();
+                        fragment = new UsuarioConfianza();
                         break;
 
                 }
@@ -98,7 +98,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                         break;
 
                     case R.id.btn_nav_usuarios_iz:
-                        fragment = new Notificaciones();
+                        fragment = new UsuarioConfianza();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_usuariosconfianza);
                         drawerLayout.closeDrawers();
                         break;
@@ -149,7 +149,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                 break;
 
             case R.id.btn_nav_usuariosconfianza:
-                fragment = new Notificaciones();
+                fragment = new UsuarioConfianza();
                 break;
 
         }
