@@ -18,7 +18,7 @@
         android:icon="@drawable/ic_notificacion"/>
 
     <item android:id="@+id/btn_nav_usuariosconfianza"
-        android:title="Usuarios de Confianza"
+        android:title="Usuarios"
         android:icon="@drawable/ic_usuarios"/>
 
 </menu>
