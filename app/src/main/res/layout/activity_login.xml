@@ -52,6 +52,7 @@
 
 
         <com.google.android.gms.common.SignInButton
+            android:id="@+id/btnLoginGoogle"
             android:layout_centerHorizontal="true"
             android:layout_width="250dp"
             android:background="@drawable/style_google"

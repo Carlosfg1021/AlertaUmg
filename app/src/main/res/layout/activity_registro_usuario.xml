@@ -244,13 +244,6 @@
                 android:layout_marginTop="15dp" />
 
 
-
-
-
-
-
-
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
