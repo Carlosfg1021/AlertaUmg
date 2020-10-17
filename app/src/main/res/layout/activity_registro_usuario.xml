@@ -109,6 +109,31 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="15dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Repetir contrasena"
+                android:textSize="20dp"
+
+                />
+
+            <EditText
+                android:id="@+id/txtRepetirContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="****"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -162,6 +187,33 @@
                 android:hint="Apellido"
                 android:textColor="#000000"
                 android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Teléfono"
+                android:textSize="20dp"
+
+                />
+            <EditText
+                android:id="@+id/txtTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="Teléfono"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:inputType="number"
+                android:maxLength="8"
+                />
 
             <View
                 android:layout_width="match_parent"

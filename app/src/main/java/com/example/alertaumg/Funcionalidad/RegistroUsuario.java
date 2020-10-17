@@ -13,16 +13,26 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.alertaumg.Contenedor;
 import com.example.alertaumg.Inicio.Login;
+import com.example.alertaumg.Modelos.RespuestaAPI;
+import com.example.alertaumg.Modelos.Usuario;
 import com.example.alertaumg.R;
+import com.example.alertaumg.Utilidades.APIUtils;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegistroUsuario extends AppCompatActivity {
 
-    EditText txtCorreo, txtPassword, txtNombre, txtApellido, txtDireccion;
+    EditText txtCorreo, txtPassword, txtNombre, txtApellido, txtDireccion, txtRepetirContrasena, txtTelefono;
     Spinner spinerDepartamento, spinerMunicipio;
     Button btnRegistrar;
     String direccionFinal;
@@ -51,13 +61,7 @@ public class RegistroUsuario extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                direccionFinal = spinerDepartamento.getSelectedItem().toString() + ", "+spinerMunicipio.getSelectedItem().toString()
-                        +", "+txtDireccion.getText().toString();//Obtenemos dirección final
-
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(),"¡Usuario registrado con éxito!",Toast.LENGTH_SHORT).show();
-                finish();
+                registrar();
             }
         });
 
@@ -81,6 +85,8 @@ public class RegistroUsuario extends AppCompatActivity {
         spinerMunicipio = findViewById(R.id.sprMunicipio);
         txtDireccion = findViewById(R.id.txtDireccion);
         btnRegistrar = findViewById(R.id.btnRegistrar);
+        txtRepetirContrasena = findViewById(R.id.txtRepetirContrasena);
+        txtTelefono = findViewById(R.id.txtTelefono);
     }
 
     public void llenarDatos() {
@@ -286,5 +292,75 @@ public class RegistroUsuario extends AppCompatActivity {
         if (spinerDepartamento.getSelectedItem().toString().equals("Zacapa")) {
             spinerMunicipio.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, munZacapa));
         }
+    }
+
+    public void registrar(){
+        //Intent intent = new Intent(getApplicationContext(), Login.class);
+        direccionFinal = spinerDepartamento.getSelectedItem().toString() + ", "+spinerMunicipio.getSelectedItem().toString()
+                +", "+txtDireccion.getText().toString();//Obtenemos dirección final
+
+        String nombre = txtNombre.getText().toString().trim();
+        String apellido = txtApellido.getText().toString().trim();
+        String numero_telefono = txtTelefono.getText().toString().trim();
+        String email = txtCorreo.getText().toString().trim();
+        String contrasenia = txtPassword.getText().toString().trim();
+        String contrasenia_confirm = txtRepetirContrasena.getText().toString().trim();
+        String direccion = direccionFinal;
+
+        String departamento = spinerDepartamento.getSelectedItem().toString();
+        String municipio = spinerMunicipio.getSelectedItem().toString();
+
+        if(!nombre.isEmpty() && !apellido.isEmpty() && !numero_telefono.isEmpty() && !email.isEmpty()
+                && !contrasenia.isEmpty() && !contrasenia_confirm.isEmpty() && !departamento.isEmpty()
+                && !municipio.isEmpty() && !direccion.isEmpty()){
+
+            try{
+                Gson gson = new GsonBuilder().setLenient().create();
+                APIUtils.getUsuarioService().registrarUsuario(nombre,apellido,numero_telefono,email,contrasenia,contrasenia_confirm,direccionFinal).enqueue(new Callback<RespuestaAPI<String>>() {
+                    @Override
+                    public void onResponse(Call<RespuestaAPI<String>> call, Response<RespuestaAPI<String>> response) {
+                        if (response.isSuccessful()) {
+                            RespuestaAPI<String> respuesta = response.body();
+
+                            if ( respuesta.getCodigo() == 1 ){
+                                String objeto = respuesta.getData();
+                                if ( objeto != null ){
+                                    Toast.makeText(RegistroUsuario.this, respuesta.toString(), Toast.LENGTH_SHORT).show();
+
+                                    Intent intent = new Intent(RegistroUsuario.this, Contenedor.class);
+                                    startActivity(intent);
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "¡Registro exitoso!", Toast.LENGTH_SHORT).show();
+                                }
+                            }else if ( respuesta.getCodigo() == 0 ){
+
+                                Toast.makeText(getApplicationContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<RespuestaAPI<String>> call, Throwable t) {
+
+                    }
+                });
+
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Error: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+
+        }else{
+            Toast.makeText(getApplicationContext(), "¡Verifique los campos!.", Toast.LENGTH_SHORT).show();
+        }
+
+
+        //startActivity(intent);
+        //Toast.makeText(getApplicationContext(),"¡Usuario registrado con éxito!",Toast.LENGTH_SHORT).show();
+        //finish();
     }
 }
