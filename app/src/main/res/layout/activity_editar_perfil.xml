@@ -10,15 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/boton_redondo_celeste"
         >
 
-        <ImageView
-            android:id="@+id/personaImagenPortada"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/fondo"
-            android:scaleType="centerCrop"
-            />
+
 
     </LinearLayout>
 
@@ -27,7 +22,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="65dp"
         android:src="@drawable/imagen_perfil"
         />
 
