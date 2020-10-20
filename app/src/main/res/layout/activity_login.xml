@@ -22,7 +22,6 @@
             android:layout_height="wrap_content"
             android:hint="Correo"
             android:background="@drawable/style_editext"
-            android:ems="10"
             android:layout_marginTop="440dp"
             android:layout_marginLeft="90dp"/>
 
@@ -34,7 +33,6 @@
             android:layout_height="wrap_content"
             android:hint="Contraseña"
             android:background="@drawable/style_editext"
-            android:ems="10"
             android:inputType="textPassword"
             android:layout_marginTop="500dp"
             android:layout_marginLeft="90dp"/>

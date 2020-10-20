@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.alertaumg.BotonPanico;
+import com.example.alertaumg.Funcionalidad.EmitirAlerta;
 import com.example.alertaumg.Funcionalidad.RegistroUsuario;
 import com.example.alertaumg.R;
 import com.example.alertaumg.TipoAlerta;
@@ -22,7 +23,7 @@ public class Portada extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(Portada.this, Login.class);
+                Intent intent = new Intent(Portada.this, EmitirAlerta.class);
                 startActivity(intent);
             }
         }, 2000);
