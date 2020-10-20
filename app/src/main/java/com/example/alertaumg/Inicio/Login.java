@@ -107,6 +107,10 @@ public class Login extends AppCompatActivity {
                                     //Toast.makeText(Login.this, usuario.toString(), Toast.LENGTH_SHORT).show();
 
                                     Intent intent = new Intent(Login.this, Contenedor.class);
+                                    intent.putExtra("nombre",usuario.getNombre());
+                                    intent.putExtra("apellido",usuario.getApellido());
+                                    intent.putExtra("direccion",usuario.getDireccion());
+
                                     startActivity(intent);
                                 }else{
                                     Toast.makeText(getApplicationContext(), "Usuario encontrado.", Toast.LENGTH_SHORT).show();
