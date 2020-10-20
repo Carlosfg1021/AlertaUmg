@@ -77,7 +77,7 @@ public class Perfil extends Fragment {
         lblMunicipio = vista.findViewById(R.id.lblMunicipio);
         lblDireccion = vista.findViewById(R.id.lblDireccion);
 
-
+//lblApellido;
         lblNombre.setText(getActivity().getIntent().getExtras().getString("nombre"));
         lblApellido.setText(getActivity().getIntent().getExtras().getString("apellido"));
 
