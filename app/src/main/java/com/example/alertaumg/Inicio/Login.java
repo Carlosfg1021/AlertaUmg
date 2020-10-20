@@ -110,6 +110,7 @@ public class Login extends AppCompatActivity {
                                     intent.putExtra("nombre",usuario.getNombre());
                                     intent.putExtra("apellido",usuario.getApellido());
                                     intent.putExtra("direccion",usuario.getDireccion());
+                                    intent.putExtra("correo",usuario.getEmail());
 
                                     startActivity(intent);
                                 }else{

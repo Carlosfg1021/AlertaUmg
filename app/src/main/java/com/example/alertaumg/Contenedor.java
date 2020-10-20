@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,7 +24,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
     BottomNavigationView menuNavegacion;
     com.google.android.material.navigation.NavigationView menuLateral;
     private androidx.drawerlayout.widget.DrawerLayout drawerLayout;
-
+    TextView emailMenu, nombreUsuarioMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         setContentView(R.layout.activity_contenedor);
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
+
         //menuNavegacion.setOnNavigationItemSelectedListener(this);
 
         setToolBar();
@@ -67,6 +69,13 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         });
 
         menuLateral = findViewById(R.id.navigationId);//Obtenemos el objeto del xml
+
+        View headerView = menuLateral.getHeaderView(0);
+        nombreUsuarioMenu = (TextView) headerView.findViewById(R.id.menuNombreUsuario);
+        emailMenu = (TextView) headerView.findViewById(R.id.menuCorreoUsuario);
+
+        nombreUsuarioMenu.setText(getIntent().getStringExtra("nombre")+" "+ getIntent().getStringExtra("apellido"));
+        emailMenu.setText(getIntent().getStringExtra("correo"));
 
     //Añadimos evento para cargar la opcion seleccionada del menu en el contenedor principal
 
