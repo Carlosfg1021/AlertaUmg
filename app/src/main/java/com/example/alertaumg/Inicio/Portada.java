@@ -23,7 +23,7 @@ public class Portada extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(Portada.this, EmitirAlerta.class);
+                Intent intent = new Intent(Portada.this, Login.class);
                 startActivity(intent);
             }
         }, 2000);
