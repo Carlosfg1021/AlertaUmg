@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 /**
@@ -18,6 +20,9 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class Perfil extends Fragment {
+
+    TextView lblNombre, lblApellido, lblDepartamento, lblMunicipio, lblDireccion, lblpersonaNombre;
+    ImageView personaImagenPerfil;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,6 +59,7 @@ public class Perfil extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
@@ -62,7 +68,53 @@ public class Perfil extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View vista = inflater.inflate(R.layout.fragment_perfil, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        lblpersonaNombre = vista.findViewById(R.id.personaNombre);
+        lblNombre = vista.findViewById(R.id.lblNombre);
+        lblApellido = vista.findViewById(R.id.lblApellido);
+        lblDepartamento = vista.findViewById(R.id.lblDepartamento);
+        lblMunicipio = vista.findViewById(R.id.lblMunicipio);
+        lblDireccion = vista.findViewById(R.id.lblDireccion);
+
+
+        lblNombre.setText(getActivity().getIntent().getExtras().getString("nombre"));
+        lblApellido.setText(getActivity().getIntent().getExtras().getString("apellido"));
+
+        lblpersonaNombre.setText(lblNombre.getText()+" "+lblApellido.getText());
+
+        String dir = getActivity().getIntent().getExtras().getString("direccion");
+        String departamento="";
+        String municipio="";
+        String direccion="";
+        int comas=0;
+        char coma = ',';
+
+        for(int i=0; i<dir.length(); i++){
+            char letra = dir.charAt(i);
+
+            if(letra == coma){
+                comas++;
+            }
+
+            if(comas==0 && letra!=coma){
+                departamento = departamento + dir.charAt(i);
+            }
+
+            if(comas==1 && letra!=coma){
+                municipio = municipio + dir.charAt(i);
+            }
+
+            if(comas==2 && letra!=coma){
+                direccion = direccion + dir.charAt(i);
+            }
+
+        }
+
+        lblDepartamento.setText(departamento);
+        lblMunicipio.setText(municipio);
+        lblDireccion.setText(direccion);
+
+        return vista;
     }
 }
