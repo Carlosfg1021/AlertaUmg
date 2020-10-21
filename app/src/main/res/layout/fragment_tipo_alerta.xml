@@ -7,6 +7,18 @@
     tools:context=".TipoAlerta">
 
     <!-- TODO: Update blank fragment layout -->
+
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical"
+     android:layout_marginTop="50dp"
+     >
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -296,7 +308,7 @@
                         tools:layout_marginBottom="16dp">
 
                         <ImageButton
-                            android:id="@+id/btnAlertaViolenciaGeneo"
+                            android:id="@+id/btnAlertaIncendio"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_marginLeft="5dp"
@@ -330,7 +342,7 @@
                         tools:layout_marginBottom="16dp">
 
                         <ImageButton
-                            android:id="@+id/btnAlertaAcosoEscola"
+                            android:id="@+id/btnAlertaInundacion"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_marginLeft="5dp"
@@ -366,7 +378,7 @@
                         tools:layout_marginBottom="16dp">
 
                         <ImageButton
-                            android:id="@+id/btnAlertaAgresionSexua"
+                            android:id="@+id/btnAlertaDerrumbe"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_marginLeft="5dp"
@@ -396,8 +408,16 @@
                 </TableRow>
 
             </TableLayout>
-        </androidx.cardview.widget.CardView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical"
+    >
 
+</LinearLayout>
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
+     </LinearLayout>
+ </ScrollView>
 
 </FrameLayout>

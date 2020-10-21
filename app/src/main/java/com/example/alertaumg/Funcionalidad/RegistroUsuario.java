@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.alertaumg.Contenedor;
 import com.example.alertaumg.Inicio.Login;
+import com.example.alertaumg.Modelos.Departamento;
 import com.example.alertaumg.Modelos.RespuestaAPI;
 import com.example.alertaumg.Modelos.Usuario;
 import com.example.alertaumg.R;
@@ -25,6 +26,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -363,4 +366,6 @@ public class RegistroUsuario extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(),"¡Usuario registrado con éxito!",Toast.LENGTH_SHORT).show();
         //finish();
     }
+
+
 }
