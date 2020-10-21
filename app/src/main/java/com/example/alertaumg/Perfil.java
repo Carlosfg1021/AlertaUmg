@@ -21,8 +21,9 @@ import android.widget.TextView;
  */
 public class Perfil extends Fragment {
 
-    TextView lblNombre, lblApellido, lblDepartamento, lblMunicipio, lblDireccion, lblpersonaNombre;
+    TextView lblNombre, lblApellido, lblDepartamento, lblMunicipio, lblDireccion, lblpersonaNombre, lblTelefono;
     ImageView personaImagenPerfil;
+    Button btnEditar;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,16 +71,20 @@ public class Perfil extends Fragment {
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_perfil, container, false);
         // Inflate the layout for this fragment
+
+        btnEditar = vista.findViewById(R.id.btnEditarPerfil);
+
         lblpersonaNombre = vista.findViewById(R.id.personaNombre);
         lblNombre = vista.findViewById(R.id.lblNombre);
         lblApellido = vista.findViewById(R.id.lblApellido);
         lblDepartamento = vista.findViewById(R.id.lblDepartamento);
         lblMunicipio = vista.findViewById(R.id.lblMunicipio);
         lblDireccion = vista.findViewById(R.id.lblDireccion);
-
+        lblTelefono = vista.findViewById(R.id.lblTelefono);
 //lblApellido;
         lblNombre.setText(getActivity().getIntent().getExtras().getString("nombre"));
         lblApellido.setText(getActivity().getIntent().getExtras().getString("apellido"));
+        lblTelefono.setText(getActivity().getIntent().getExtras().getString("telefono"));
 
         lblpersonaNombre.setText(lblNombre.getText()+" "+lblApellido.getText());
 
@@ -114,6 +119,20 @@ public class Perfil extends Fragment {
         lblDepartamento.setText(departamento);
         lblMunicipio.setText(municipio);
         lblDireccion.setText(direccion);
+
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplicationContext(),EditarPerfil.class);
+
+
+
+
+
+
+                startActivity(intent);
+            }
+        });
 
         return vista;
     }

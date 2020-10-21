@@ -36,4 +36,17 @@ public interface UsuarioService {
             @Field("contrasenia_confirm") String contrasenia_confirm,
             @Field("direccion") String direccion
     ) throws Exception;
+
+    @POST("actualizar/usuario")
+    @FormUrlEncoded
+    Call<RespuestaAPI<String>> actualizarUsuario(
+            @Field("id_usuario") int id_usuario,
+            @Field("nombre") String nombre,
+            @Field("apellido") String apellido,
+            @Field("numero_telefono") String numero_telefono,
+            @Field("email") String email,
+            @Field("contrasenia") String contrasenia,
+            @Field("contrasenia_confirm") String contrasenia_confirm,
+            @Field("direccion") String direccion
+    ) throws Exception;
 }
