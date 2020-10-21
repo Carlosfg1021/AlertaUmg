@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -123,11 +124,19 @@ public class Perfil extends Fragment {
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity().getApplicationContext(),EditarPerfil.class);
+                Toast.makeText(getActivity().getApplicationContext(),"Presionado",Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity().getApplicationContext(),EditUser.class);
 
 
-
-
+                intent.putExtra("id_usuario",getActivity().getIntent().getExtras().getInt("id_usuario"));
+                intent.putExtra("nombre", lblNombre.getText().toString());
+                intent.putExtra("apellido",lblApellido.getText().toString());
+                intent.putExtra("telefono",lblTelefono.getText().toString());
+                intent.putExtra("direccion",lblDireccion.getText().toString());
+                intent.putExtra("correo",getActivity().getIntent().getExtras().getString("correo"));
+                intent.putExtra("departamento", lblDepartamento.getText().toString());
+                intent.putExtra("municipio", lblMunicipio.getText());
 
 
                 startActivity(intent);

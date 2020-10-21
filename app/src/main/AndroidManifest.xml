@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Funcionalidad.EmitirAlerta"></activity>
+        <activity android:name=".EditUser"></activity>
+        <activity android:name=".Funcionalidad.EmitirAlerta" />
         <activity android:name=".Contenedor" />
         <activity android:name=".Funcionalidad.RegistroUsuario" />
 
