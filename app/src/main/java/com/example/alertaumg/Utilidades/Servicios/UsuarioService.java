@@ -52,9 +52,8 @@ public interface UsuarioService {
 
     @POST("obtener/usuarios/por/nombre")
     @FormUrlEncoded
-    Call<RespuestaAPI<String>> obtenerUsuario(
-            @Field("nombre") String nombre,
-            @Field("apellido") String apellido
+    Call<RespuestaAPI<List<Usuario>>> obtenerUsuario(
+            @Field("filtro") String campo
     ) throws Exception;
 
 }
