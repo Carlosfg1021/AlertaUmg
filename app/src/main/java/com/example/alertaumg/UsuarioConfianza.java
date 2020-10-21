@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,8 +50,20 @@ public class UsuarioConfianza extends Fragment {
         buscar = (EditText) view.findViewById(R.id.txtbuscar);
 
         listausuario = new ArrayList<>();
-        cargarlista();
+        //cargarlista();
+
+        cargarUsuarios();
         mostraData();
+
+        buscar.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                listausuario.clear();
+                cargarUsuarios();
+                mostraData();
+                return false;
+            }
+        });
 
         return view;
     }
@@ -68,57 +81,50 @@ public class UsuarioConfianza extends Fragment {
 
     }
 
-    private void login(){
+    private void cargarUsuarios(){
 
         String campo =  buscar.getText().toString().trim();
 
-        if ( !campo.isEmpty()  ){
-            try {
-                Gson gson = new GsonBuilder().setLenient().create();
+        try{
 
-                APIUtils.getUsuarioService().obtenerUsuario(campo).enqueue(new Callback<RespuestaAPI<List<Usuario>>> () {
-                    @Override
-                    public void onResponse(Call<RespuestaAPI<List<Usuario>>> call, Response<RespuestaAPI<List<Usuario>>>  response) {
-                        if (response.isSuccessful()) {
-                            RespuestaAPI<Usuario> respuesta = response.body();
+            APIUtils.getUsuarioService().obtenerUsuario(campo).enqueue(new Callback<RespuestaAPI<List<Usuario>>>() {
+                @Override
+                public void onResponse(Call<RespuestaAPI<List<Usuario>>> call, Response<RespuestaAPI<List<Usuario>>> response) {
+                    if (response.isSuccessful()) {
+                        RespuestaAPI<List<Usuario>> respuesta = response.body();
 
-                            if ( respuesta.getCodigo() == 1 ){
-                                Usuario usuario = respuesta.getData();
-                                if ( usuario != null ){
-                                    //Toast.makeText(Login.this, usuario.toString(), Toast.LENGTH_SHORT).show();
-
-                                    Intent intent = new Intent(Login.this, Contenedor.class);
-                                    intent.putExtra("nombre",usuario.getNombre());
-                                    intent.putExtra("apellido",usuario.getApellido());
-                                    intent.putExtra("direccion",usuario.getDireccion());
-                                    intent.putExtra("correo",usuario.getEmail());
-                                    intent.putExtra("telefono",usuario.getNumero_telefono());
-                                    intent.putExtra("id_usuario",usuario.getId());
-
-                                    startActivity(intent);
-                                }else{
-                                    Toast.makeText(getApplicationContext(), "Usuario encontrado.", Toast.LENGTH_SHORT).show();
+                        if ( respuesta.getCodigo() == 1 ){
+                            List<Usuario> usuarioLista = respuesta.getData();
+                            if ( usuarioLista != null ){
+                                //Toast.makeText(Login.this, usuario.toString(), Toast.LENGTH_SHORT).show();
+                                listausuario.clear();//Limpiamos antes de cada búsqueda
+                                for(int i=0; i<usuarioLista.size();i++){
+                                    listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),usuarioLista.get(i).getDireccion()));
                                 }
-                            }else if ( respuesta.getCodigo() == 0 ){
-                                Toast.makeText(getApplicationContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
-                            }
-                        }else{
-                            Toast.makeText(getApplicationContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
 
-                    @Override
-                    public void onFailure(Call<RespuestaAPI<Usuario>> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Error: " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getActivity().getApplicationContext(), "Error al cargar usuarios", Toast.LENGTH_SHORT).show();
+                            }
+                        }else if ( respuesta.getCodigo() == 0 ){
+                            Toast.makeText(getActivity().getApplicationContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(getActivity().getApplicationContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
                     }
-                });
-            } catch (Exception e) {
-                Toast.makeText(this, "Error: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }else{
-            Toast.makeText(this, "Debe ingresar correo y contraseña.", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(Call<RespuestaAPI<List<Usuario>>> call, Throwable t) {
+
+                }
+            });
+
+        }catch(Exception e){
+
         }
+
     }
+
 
 
 }
