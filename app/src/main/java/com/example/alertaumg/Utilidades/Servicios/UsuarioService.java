@@ -49,4 +49,12 @@ public interface UsuarioService {
             @Field("contrasenia_confirm") String contrasenia_confirm,
             @Field("direccion") String direccion
     ) throws Exception;
+
+    @POST("obtener/usuarios/por/nombre")
+    @FormUrlEncoded
+    Call<RespuestaAPI<String>> obtenerUsuario(
+            @Field("nombre") String nombre,
+            @Field("apellido") String apellido
+    ) throws Exception;
+
 }
