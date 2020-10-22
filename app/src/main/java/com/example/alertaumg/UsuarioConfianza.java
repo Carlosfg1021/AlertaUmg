@@ -120,6 +120,9 @@ public class UsuarioConfianza extends Fragment {
                                 listausuario.clear();//Limpiamos antes de cada búsqueda
                                 for(int i=0; i<usuarioLista.size();i++){
                                     listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),usuarioLista.get(i).getDireccion()));
+
+
+
                                 }
 
                             }else{
@@ -144,7 +147,6 @@ public class UsuarioConfianza extends Fragment {
         }
 
     }
-
 
 
 }
