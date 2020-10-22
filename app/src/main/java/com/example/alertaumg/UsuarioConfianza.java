@@ -5,10 +5,13 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +41,7 @@ public class UsuarioConfianza extends Fragment {
     RecyclerView recyclerViewUsuarios ;
     ArrayList<Usuarios> listausuario;
 
-    EditText buscar;
+    SearchView buscar;
 
     @Nullable
     @Override
@@ -47,7 +50,7 @@ public class UsuarioConfianza extends Fragment {
         View view  = inflater.inflate(R.layout.fragment_usuario_confianza,container,false);
         recyclerViewUsuarios = view.findViewById(R.id.recycleview);
 
-        buscar = (EditText) view.findViewById(R.id.txtbuscar);
+        buscar = (SearchView) view.findViewById(R.id.txtbuscar);
 
         listausuario = new ArrayList<>();
         //cargarlista();
@@ -55,7 +58,22 @@ public class UsuarioConfianza extends Fragment {
         cargarUsuarios();
         mostraData();
 
-        buscar.setOnKeyListener(new View.OnKeyListener() {
+        buscar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                listausuario.clear();
+                cargarUsuarios();
+                mostraData();
+                return false;
+            }
+        });
+
+        /*buscar.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 listausuario.clear();
@@ -63,7 +81,9 @@ public class UsuarioConfianza extends Fragment {
                 mostraData();
                 return false;
             }
-        });
+        });*/
+
+
 
         return view;
     }
@@ -83,7 +103,7 @@ public class UsuarioConfianza extends Fragment {
 
     private void cargarUsuarios(){
 
-        String campo =  buscar.getText().toString().trim();
+        String campo =  buscar.getQuery().toString().trim();
 
         try{
 
@@ -103,7 +123,7 @@ public class UsuarioConfianza extends Fragment {
                                 }
 
                             }else{
-                                Toast.makeText(getActivity().getApplicationContext(), "Error al cargar usuarios", Toast.LENGTH_SHORT).show();
+
                             }
                         }else if ( respuesta.getCodigo() == 0 ){
                             Toast.makeText(getActivity().getApplicationContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
