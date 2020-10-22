@@ -283,6 +283,7 @@ public class EmitirAlerta extends AppCompatActivity {
                 public void run() {
                     txtLongitud.setText(longitudeBest + "");
                     txtLatitud.setText(latitudeBest + "");
+                    Toast.makeText(getApplicationContext(),longitudeBest+", "+latitudeBest,Toast.LENGTH_LONG).show();
                     Toast.makeText(EmitirAlerta.this, "Ubicación actualizada automáticamente, próxima actualización en 10 seg", Toast.LENGTH_SHORT).show();
                 }
             });
