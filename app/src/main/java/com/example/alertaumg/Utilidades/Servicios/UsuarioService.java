@@ -3,6 +3,7 @@ package com.example.alertaumg.Utilidades.Servicios;
 import com.example.alertaumg.Modelos.RespuestaAPI;
 import com.example.alertaumg.Modelos.Usuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -54,6 +55,12 @@ public interface UsuarioService {
     @FormUrlEncoded
     Call<RespuestaAPI<List<Usuario>>> obtenerUsuario(
             @Field("filtro") String campo
+    ) throws Exception;
+
+    @POST("obtener/usuarios")
+    @FormUrlEncoded
+    Call<RespuestaAPI<ArrayList<Usuario>>> obtenerTodos(
+
     ) throws Exception;
 
 }

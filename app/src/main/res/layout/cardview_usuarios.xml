@@ -76,6 +76,7 @@
                 >
 
                 <Button
+                    android:id="@+id/btnSeguir"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:text="Seguir"
@@ -84,6 +85,7 @@
                     />
 
                 <Button
+                    android:id="@+id/btnPerfil"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="5dp"
@@ -94,7 +96,7 @@
 
 
             </LinearLayout>
-            
+
         </RelativeLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

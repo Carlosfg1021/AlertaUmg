@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -40,8 +41,11 @@ public class UsuarioConfianza extends Fragment {
     AdaptadorUsuarios adaptadorUsuarios;
     RecyclerView recyclerViewUsuarios ;
     ArrayList<Usuarios> listausuario;
-
+    Button btnSeguir;
     SearchView buscar;
+
+    private int user_confianza_global_id;
+    private int my_user_id;
 
     @Nullable
     @Override
@@ -51,12 +55,16 @@ public class UsuarioConfianza extends Fragment {
         recyclerViewUsuarios = view.findViewById(R.id.recycleview);
 
         buscar = (SearchView) view.findViewById(R.id.txtbuscar);
+        btnSeguir = (Button) view.findViewById(R.id.btnSeguir);
+
 
         listausuario = new ArrayList<>();
         //cargarlista();
-
+        cargarTodos();
         cargarUsuarios();
         mostraData();
+
+
 
         buscar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -83,8 +91,6 @@ public class UsuarioConfianza extends Fragment {
             }
         });*/
 
-
-
         return view;
     }
 
@@ -97,7 +103,12 @@ public class UsuarioConfianza extends Fragment {
 
         recyclerViewUsuarios.setLayoutManager(new LinearLayoutManager(getContext()));
         adaptadorUsuarios = new AdaptadorUsuarios(getContext(), listausuario);
+
+        adaptadorUsuarios.id_user = my_user_id;
+        adaptadorUsuarios.id_user_confianza = user_confianza_global_id;
+
         recyclerViewUsuarios.setAdapter(adaptadorUsuarios);
+
 
     }
 
@@ -119,10 +130,40 @@ public class UsuarioConfianza extends Fragment {
                                 //Toast.makeText(Login.this, usuario.toString(), Toast.LENGTH_SHORT).show();
                                 listausuario.clear();//Limpiamos antes de cada búsqueda
                                 for(int i=0; i<usuarioLista.size();i++){
-                                    listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),usuarioLista.get(i).getDireccion()));
 
+                                    String dir = usuarioLista.get(i).getDireccion();
+                                    String departamento="";
+                                    String municipio="";
+                                    String direccion="";
+                                    int comas=0;
+                                    char coma = ',';
 
+                                    for(int a=0; a<dir.length(); a++){
+                                        char letra = dir.charAt(a);
 
+                                        if(letra == coma){
+                                            comas++;
+                                        }
+
+                                        if(comas==0 && letra!=coma){
+                                            departamento = departamento + dir.charAt(a);
+                                        }
+
+                                        if(comas==1 && letra!=coma){
+                                            municipio = municipio + dir.charAt(a);
+                                        }
+
+                                        if(comas==2 && letra!=coma){
+                                            direccion = direccion + dir.charAt(a);
+                                        }
+
+                                    }
+
+                                    listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),departamento));
+                                    user_confianza_global_id=usuarioLista.get(i).getId();//id de usuario de confianza
+                                    my_user_id = getActivity().getIntent().getExtras().getInt("id_usuario");//mi id
+                                    mostraData();
+                                    //Toast.makeText(getActivity().getApplicationContext(),listausuario.get(i).getNombre(),Toast.LENGTH_SHORT).show();
                                 }
 
                             }else{
@@ -146,6 +187,51 @@ public class UsuarioConfianza extends Fragment {
 
         }
 
+    }
+
+
+    private void cargarTodos(){
+            try{
+
+                APIUtils.getUsuarioService().obtenerTodos().enqueue(new Callback<RespuestaAPI<ArrayList<Usuario>>>() {
+                    @Override
+                    public void onResponse(Call<RespuestaAPI<ArrayList<Usuario>>> call, Response<RespuestaAPI<ArrayList<Usuario>>> response) {
+                        if (response.isSuccessful()) {
+                            RespuestaAPI<ArrayList<Usuario>> respuesta = response.body();
+
+                            if ( respuesta.getCodigo() == 1 ){
+                                ArrayList<Usuario> usuarioLista = respuesta.getData();
+                                if ( usuarioLista != null ){
+                                    //Toast.makeText(Login.this, usuario.toString(), Toast.LENGTH_SHORT).show();
+                                    //listausuario.clear();//Limpiamos antes de cada búsqueda
+                                    for(int i=0; i<usuarioLista.size();i++){
+
+                                        listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),usuarioLista.get(i).getDireccion()));
+
+                                    }
+
+                                    //mostraData();
+
+                                }else{
+
+                                }
+                            }else if ( respuesta.getCodigo() == 0 ){
+                                Toast.makeText(getActivity().getApplicationContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+                            }
+                        }else{
+                            Toast.makeText(getActivity().getApplicationContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<RespuestaAPI<ArrayList<Usuario>>> call, Throwable t) {
+
+                    }
+                });
+
+            }catch(Exception e){
+
+        }
     }
 
 
