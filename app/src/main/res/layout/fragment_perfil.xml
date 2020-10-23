@@ -7,23 +7,21 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="120dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/boton_redondo_celeste"
-        >
-
+        android:background="@drawable/boton_redondo_celeste">
 
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/personaImagenPerfil"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="122dp"
+        android:layout_height="118dp"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="121dp"
-        android:src="@drawable/imagen_perfil"
-        />
+        android:layout_marginTop="101dp"
+        android:src="@drawable/imagen_perfil" />
 
     <TextView
         android:id="@+id/personaNombre"
@@ -36,46 +34,50 @@
         android:layout_marginLeft="150dp"
         />
 
+
     <Button
         android:id="@+id/btnEditarPerfil"
         android:layout_width="120dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="224dp"
+        android:layout_height="27dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_marginLeft="265dp"
+        android:layout_marginTop="181dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/boton_redondo_celeste"
         android:text="Editar Perfil"
         android:textColor="@color/blanco" />
 
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="250dp"
+        android:layout_height="507dp"
+        android:layout_alignParentTop="true"
 
-        >
+        android:layout_marginTop="225dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
-                android:text="Datos personales"
                 android:layout_marginTop="7dp"
+                android:text="Datos personales"
                 android:textColor="@color/heading"
-                android:textStyle="bold"
-                android:textSize="26sp" />
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -104,8 +106,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -136,8 +138,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -169,28 +171,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Departamento"
-                android:textColor="@color/heading"
-                android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Departamento"
+                    android:textColor="@color/heading"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/lblDepartamento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="40dp"
-                android:fontFamily="sans-serif"
-                android:text="lblDepartamento"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/lblDepartamento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="sans-serif"
+                    android:text="lblDepartamento"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -198,28 +200,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Municipio"
-                android:textColor="@color/heading"
-                android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Municipio"
+                    android:textColor="@color/heading"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/lblMunicipio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="40dp"
-                android:fontFamily="sans-serif"
-                android:text="lblMunicipio"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/lblMunicipio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="sans-serif"
+                    android:text="lblMunicipio"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -227,29 +229,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="7dp"
                 app:cardCornerRadius="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Direccion"
-                android:textColor="@color/heading"
-                android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Direccion"
+                    android:textColor="@color/heading"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/lblDireccion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="40dp"
-                android:fontFamily="sans-serif"
-                android:text="lblDireccion"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/lblDireccion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="sans-serif"
+                    android:text="lblDireccion"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
             </androidx.cardview.widget.CardView>
 
