@@ -1,6 +1,7 @@
 package com.example.alertaumg.Adaptadores;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.alertaumg.Entidades.Usuarios;
 import com.example.alertaumg.Modelos.RespuestaAPI;
+import com.example.alertaumg.Modelos.Usuario;
 import com.example.alertaumg.R;
+import com.example.alertaumg.SeguirUsuario;
 import com.example.alertaumg.Utilidades.APIUtils;
 
 import java.util.ArrayList;
@@ -24,9 +27,8 @@ import retrofit2.Response;
 
 public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.ViewHolder> implements  View.OnClickListener{
 
-
-    public int id_user;//nuestro id
-    public int id_user_confianza;//id del usuario que buscamos y queremos agregar
+    public Usuario usuario;
+    public int posicionPublica;
     LayoutInflater inflater;
     ArrayList<Usuarios> model;
     private View.OnClickListener listener;
@@ -57,9 +59,10 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
         String nombre = model.get(position).getNombre();
         String direccion = model.get(position).getDireccion();
 
+        usuario= model.get(position).getUsuario();
+
         holder.nombre.setText(nombre);
         holder.direccion.setText(direccion);
-
     }
 
     @Override
@@ -81,13 +84,29 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView nombre,direccion;
-        Button btnSeguir;
+        Button btnPerfil;
         public ViewHolder(@NonNull View itemView){
             super(itemView);
 
             nombre = itemView.findViewById(R.id.nombre_carview);
             direccion = itemView.findViewById(R.id.direccion_carview);
-            btnSeguir = itemView.findViewById(R.id.btnSeguir);
+            btnPerfil = itemView.findViewById(R.id.btnPerfil);
+            btnPerfil.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(itemView.getContext(), SeguirUsuario.class);
+
+                    intent.putExtra("id_confianza",usuario.getId());
+                    intent.putExtra("nombre_confianza",usuario.getNombre());
+                    intent.putExtra("apellido_confianza",usuario.getApellido());
+                    intent.putExtra("telefono_confianza",usuario.getNumero_telefono());
+                    intent.putExtra("direccion_confianza",usuario.getDireccion());
+
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+        /*
 
             btnSeguir.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -122,10 +141,10 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
                     }catch (Exception e){
 
                     }
-                    
+
                 }
             });
-
+*/
         }
     }
 }

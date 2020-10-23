@@ -55,14 +55,13 @@ public class UsuarioConfianza extends Fragment {
         recyclerViewUsuarios = view.findViewById(R.id.recycleview);
 
         buscar = (SearchView) view.findViewById(R.id.txtbuscar);
-        btnSeguir = (Button) view.findViewById(R.id.btnSeguir);
 
 
         listausuario = new ArrayList<>();
         //cargarlista();
-        cargarTodos();
+        //cargarTodos();
         cargarUsuarios();
-        mostraData();
+        //mostraData();
 
 
 
@@ -76,7 +75,7 @@ public class UsuarioConfianza extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 listausuario.clear();
                 cargarUsuarios();
-                mostraData();
+                //mostraData();
                 return false;
             }
         });
@@ -96,17 +95,13 @@ public class UsuarioConfianza extends Fragment {
 
     public void cargarlista(){
 
-        listausuario.add(new Usuarios("Carlos Franco","Gualan"));
+//        listausuario.add(new Usuarios("Carlos Franco","Gualan",1,1));
     }
 
     public void mostraData(){
 
         recyclerViewUsuarios.setLayoutManager(new LinearLayoutManager(getContext()));
         adaptadorUsuarios = new AdaptadorUsuarios(getContext(),listausuario);
-
-        adaptadorUsuarios.id_user = my_user_id;
-        adaptadorUsuarios.id_user_confianza = user_confianza_global_id;
-
         recyclerViewUsuarios.setAdapter(adaptadorUsuarios);
 
 
@@ -129,6 +124,7 @@ public class UsuarioConfianza extends Fragment {
                             if ( usuarioLista != null ){
                                 //Toast.makeText(Login.this, usuario.toString(), Toast.LENGTH_SHORT).show();
                                 listausuario.clear();//Limpiamos antes de cada búsqueda
+                                Usuario usEnviar;
                                 for(int i=0; i<usuarioLista.size();i++){
 
                                     String dir = usuarioLista.get(i).getDireccion();
@@ -159,13 +155,14 @@ public class UsuarioConfianza extends Fragment {
 
                                     }
 
-                                    listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),departamento));
-                                    user_confianza_global_id=usuarioLista.get(i).getId();//id de usuario de confianza
-                                    my_user_id = getActivity().getIntent().getExtras().getInt("id_usuario");//mi id
-                                    mostraData();
+                                    usEnviar = usuarioLista.get(i);
+                                    listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),departamento,usEnviar));
+                                    //user_confianza_global_id=usuarioLista.get(i).getId();//id de usuario de confianza
+                                    //my_user_id = getActivity().getIntent().getExtras().getInt("id_usuario");//mi id
+
                                     //Toast.makeText(getActivity().getApplicationContext(),listausuario.get(i).getNombre(),Toast.LENGTH_SHORT).show();
                                 }
-
+                                mostraData();
                             }else{
 
                             }
@@ -206,7 +203,7 @@ public class UsuarioConfianza extends Fragment {
                                     listausuario.clear();//Limpiamos antes de cada búsqueda
                                     for(int i=0; i<usuarioLista.size();i++){
 
-                                        listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),usuarioLista.get(i).getDireccion()));
+//                                        listausuario.add(new Usuarios((usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),departamento,getActivity().getIntent().getExtras().getInt("id_usuario"),1));
 
                                     }
 

@@ -77,13 +77,6 @@
                 android:layout_marginRight="11dp"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnSeguir"
-                    android:layout_width="60dp"
-                    android:layout_height="25dp"
-                    android:background="@drawable/boton_redondo_celeste"
-                    android:text="Seguir"
-                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnPerfil"

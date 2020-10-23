@@ -1,15 +1,21 @@
 package com.example.alertaumg.Entidades;
 
+import com.example.alertaumg.Modelos.Usuario;
+
 public class Usuarios {
+
 
     private String nombre;
     private String direccion;
+    private Usuario usuario;
+
 
     public Usuarios(){}
 
-    public Usuarios(String nombre, String direccion) {
+    public Usuarios(String nombre, String direccion,Usuario usser) {
         this.nombre = nombre;
         this.direccion = direccion;
+        this.usuario = usser;
     }
 
     public String getNombre() {
@@ -20,6 +26,7 @@ public class Usuarios {
         return direccion;
     }
 
+   public Usuario getUsuario(){return usuario;}
 
 
 }
