@@ -55,7 +55,7 @@
         android:layout_marginTop="57dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview_emergencia"
+            android:id="@+id/recycleview_contactos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="9dp"

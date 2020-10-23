@@ -57,14 +57,36 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/alerta_carview"
+                    android:id="@+id/contacto_carview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="79331103"
                     android:textSize="18sp" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_2"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="19dp"
+                android:layout_marginRight="19dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnNotificacion"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/boton_redondo_celeste"
+                    android:text="Llamar"
+                    android:textSize="10sp" />
 
             </LinearLayout>
+
         </RelativeLayout>
 </LinearLayout>
 </androidx.cardview.widget.CardView>
