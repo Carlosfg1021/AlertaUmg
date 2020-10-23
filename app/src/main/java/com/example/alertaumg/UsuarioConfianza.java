@@ -102,7 +102,7 @@ public class UsuarioConfianza extends Fragment {
     public void mostraData(){
 
         recyclerViewUsuarios.setLayoutManager(new LinearLayoutManager(getContext()));
-        adaptadorUsuarios = new AdaptadorUsuarios(getContext(), listausuario);
+        adaptadorUsuarios = new AdaptadorUsuarios(getContext(),listausuario);
 
         adaptadorUsuarios.id_user = my_user_id;
         adaptadorUsuarios.id_user_confianza = user_confianza_global_id;
