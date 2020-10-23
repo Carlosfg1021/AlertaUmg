@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -110,6 +111,11 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                         fragment = new UsuarioConfianza();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_usuariosconfianza);
                         drawerLayout.closeDrawers();
+                        break;
+
+                    case R.id.btn_contactos_emergencia_iz:
+                        Intent intent= new Intent (Contenedor.this, ContactosEmergenciaActivity.class);
+                        startActivity(intent);
                         break;
 
                     case R.id.btn_cerrar:
