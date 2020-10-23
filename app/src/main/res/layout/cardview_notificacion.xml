@@ -24,15 +24,15 @@
 
             <ImageView
                 android:id="@+id/imagen1"
-                android:layout_width="78dp"
-                android:layout_height="78dp"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
-                android:src="@drawable/ic_notificacion"
-                android:layout_alignParentLeft="true"/>
+                android:src="@drawable/ic_notificacion" />
 
             <LinearLayout
                 android:id="@+id/layout_1"
@@ -40,12 +40,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/imagen1"
-                android:orientation="vertical"
-                android:layout_marginLeft="4dp"
                 android:layout_toRightOf="@id/imagen1"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/nombre_carview"
@@ -55,7 +54,7 @@
                     android:text="Fernando Martinez"
                     android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
 
                 <TextView
@@ -63,28 +62,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Violencia de Genero"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="33dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="38dp"
-                android:orientation="horizontal"
-                android:layout_marginLeft="280dp"
-                >
+                android:layout_marginEnd="19dp"
+                android:layout_marginRight="19dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnNotificacion"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="5dp"
-                    android:text="Ver"
-                    android:textSize="10sp"
                     android:background="@drawable/boton_redondo_celeste"
-                    />
+                    android:text="Ver"
+                    android:textSize="10sp" />
 
             </LinearLayout>
 
