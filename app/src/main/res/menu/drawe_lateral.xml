@@ -25,7 +25,7 @@
             android:title="Usuarios"/>
 
         <item android:id="@+id/btn_contactos_emergencia_iz"
-            android:icon="@drawable/ic_usuarios"
+            android:icon="@drawable/ic_phone"
             android:title="Contactos de Emergencia"/>
 
     </group>

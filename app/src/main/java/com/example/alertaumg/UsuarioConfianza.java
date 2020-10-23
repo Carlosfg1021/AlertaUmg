@@ -203,7 +203,7 @@ public class UsuarioConfianza extends Fragment {
                                 ArrayList<Usuario> usuarioLista = respuesta.getData();
                                 if ( usuarioLista != null ){
                                     //Toast.makeText(Login.this, usuario.toString(), Toast.LENGTH_SHORT).show();
-                                    //listausuario.clear();//Limpiamos antes de cada búsqueda
+                                    listausuario.clear();//Limpiamos antes de cada búsqueda
                                     for(int i=0; i<usuarioLista.size();i++){
 
                                         listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),usuarioLista.get(i).getDireccion()));
