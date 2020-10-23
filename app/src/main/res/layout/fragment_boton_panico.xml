@@ -78,11 +78,11 @@
 
 
             <TextView
+                android:id="@+id/txtalerta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="       Carlos Franco   "
                 android:background="@drawable/boton_redondo_gris"
-                android:layout_marginLeft="95dp"
+                android:layout_marginLeft="125dp"
                 android:layout_marginTop="380dp"
 
                 android:textSize="22dp"
