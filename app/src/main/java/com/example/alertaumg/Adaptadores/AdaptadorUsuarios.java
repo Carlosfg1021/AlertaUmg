@@ -13,12 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.alertaumg.Entidades.Usuarios;
 import com.example.alertaumg.Modelos.RespuestaAPI;
-import com.example.alertaumg.Modelos.Usuario;
 import com.example.alertaumg.R;
 import com.example.alertaumg.Utilidades.APIUtils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,10 +31,10 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
     ArrayList<Usuarios> model;
     private View.OnClickListener listener;
 
-    public AdaptadorUsuarios(Context context,ArrayList<Usuarios> model ){
+    public AdaptadorUsuarios(Context context, ArrayList<Usuarios> model ){
 
-         this.inflater = LayoutInflater.from(context);
-         this.model = model;
+        this.inflater = LayoutInflater.from(context);
+        this.model = model;
 
     }
 
