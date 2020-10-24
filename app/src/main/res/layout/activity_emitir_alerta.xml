@@ -7,6 +7,44 @@
     android:orientation="vertical"
     tools:context=".Funcionalidad.EmitirAlerta">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        android:paddingHorizontal="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="15dp"
+            android:background="@color/colorPrimary"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                android:text="   Emitir Alerta"
+                android:textColor="#000000"
+                android:gravity="center_vertical"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -176,15 +214,15 @@
 
 
                     <RelativeLayout
-                        android:layout_width="279dp"
+                        android:layout_width="299dp"
                         android:layout_height="92dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="35dp"
                         android:layout_marginTop="15dp"
                         android:orientation="horizontal">
 
                         <Button
                             android:id="@+id/btnCancelar"
-                            android:layout_width="112dp"
+                            android:layout_width="120dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
@@ -194,7 +232,7 @@
 
                         <Button
                             android:id="@+id/btnConfirmar"
-                            android:layout_width="104dp"
+                            android:layout_width="120dp"
                             android:layout_height="36dp"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentLeft="true"
