@@ -1,6 +1,7 @@
 package com.example.alertaumg.Utilidades.Servicios;
 
 import com.example.alertaumg.Modelos.Alerta;
+import com.example.alertaumg.Modelos.ContactosEmergencia;
 import com.example.alertaumg.Modelos.RespuestaAPI;
 
 import java.util.List;
@@ -13,10 +14,8 @@ import retrofit2.http.POST;
 public interface ContactoEmergenciaService {
 
     @POST("obtener/contactos/emergencia")
-    @FormUrlEncoded
 
-    Call<RespuestaAPI<List<ContactoEmergenciaService>>>obtenerContactosEmergencia(
-
+    Call<RespuestaAPI<List<ContactosEmergencia>>>obtenerContactosEmergencia(
     )throws  Exception;
 
 }
