@@ -34,7 +34,7 @@
         />
 
     <Button
-        android:id="@+id/btnEditarPerfil"
+        android:id="@+id/btnSeguir"
         android:layout_width="120dp"
         android:layout_height="27dp"
         android:layout_alignParentTop="true"
