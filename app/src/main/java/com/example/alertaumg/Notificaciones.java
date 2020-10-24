@@ -40,10 +40,14 @@ public class Notificaciones extends Fragment {
     AdaptadorNotificacion adaptadorNotificacion;
     RecyclerView recyclerViewNotificacion;
     ArrayList<NotificacionU> listanotificacion;
-
+    public int mi_id_publico;
     TipoAlerta alertaCardView;
     Usuario usuarioCardView;
     Indice indiceUsuario;
+
+    public Notificaciones(int id_u){
+        this.mi_id_publico = id_u;
+    }
 
     @Nullable
     @Override
@@ -53,13 +57,13 @@ public class Notificaciones extends Fragment {
 
         recyclerViewNotificacion = view.findViewById(R.id.recycleview_noti);
         listanotificacion = new ArrayList<>();
-
+        //Toast.makeText(getContext(),getActivity().getIntent().getExtras().getInt("id_usuario"),Toast.LENGTH_SHORT).show();
         //cargarlista();
        // mostraData();
-
+      //Toast.makeText(view.getContext(),getActivity().getIntent().getExtras().getInt("id_usuario"),Toast.LENGTH_SHORT).show();
        try{
-
-           APIUtils.getAlertaService().obtenerAlertasNoVistas(getActivity().getIntent().getExtras().getInt("id_usuario")).enqueue(new Callback<RespuestaAPI<List<Alerta>>>() {
+           Gson gson = new GsonBuilder().setLenient().create();
+           APIUtils.getAlertaService().obtenerAlertasNoVistas(mi_id_publico).enqueue(new Callback<RespuestaAPI<List<Alerta>>>() {
                @Override
                public void onResponse(Call<RespuestaAPI<List<Alerta>>> call, Response<RespuestaAPI<List<Alerta>>> response) {
                    if (response.isSuccessful()) {
@@ -73,11 +77,12 @@ public class Notificaciones extends Fragment {
 
                                for(int i=0; i<alerta.size();i++){
                                    listanotificacion.add(new NotificacionU(alerta.get(i).getNombre_usuario(),alerta.get(i).getNombre_tipo_alerta()));
+
                                }
 
                                mostraData();
                            }else{
-                               Toast.makeText(view.getContext(), "Usuario encontrado.", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(view.getContext(), "Alertas encontradas", Toast.LENGTH_SHORT).show();
                            }
                        }else if ( respuesta.getCodigo() == 0 ){
                            Toast.makeText(view.getContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();

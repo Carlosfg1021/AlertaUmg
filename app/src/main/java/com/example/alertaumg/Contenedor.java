@@ -56,7 +56,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                         fragment = new Perfil();
                         break;
                     case R.id.btn_nav_notification:
-                        fragment = new Notificaciones();
+                        fragment = new Notificaciones(getIntent().getExtras().getInt("id_usuario"));
                         break;
 
                     case R.id.btn_nav_usuariosconfianza:
@@ -103,7 +103,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                         break;
 
                         case R.id.btn_nav_notification_iz:
-                        fragment = new Notificaciones();
+                        fragment = new Notificaciones(getIntent().getExtras().getInt("id_usuario"));
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_notification);
                         drawerLayout.closeDrawers();
                         break;
@@ -161,7 +161,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                 fragment = new Perfil();
                 break;
             case R.id.btn_nav_notification:
-                fragment = new Notificaciones();
+                fragment = new Notificaciones(getIntent().getExtras().getInt("id_usuario"));
                 break;
 
             case R.id.btn_nav_usuariosconfianza:

@@ -38,13 +38,6 @@ public class Alerta {
     @Expose
     private int estado;
 
-    @SerializedName("fecha_commit")
-    @Expose
-    private Date fecha_commit;
-
-    @SerializedName("hora_commit")
-    @Expose
-    private Time hora_commit;
 
     @SerializedName("nombre_tipo_alerta")
     @Expose
@@ -118,21 +111,6 @@ public class Alerta {
         this.estado = estado;
     }
 
-    public Date getFecha_commit() {
-        return fecha_commit;
-    }
-
-    public void setFecha_commit(Date fecha_commit) {
-        this.fecha_commit = fecha_commit;
-    }
-
-    public Time getHora_commit() {
-        return hora_commit;
-    }
-
-    public void setHora_commit(Time hora_commit) {
-        this.hora_commit = hora_commit;
-    }
 
 
     public String getNombre_tipo_alerta() {
