@@ -89,8 +89,8 @@
 
                              <ImageButton
                                  android:id="@+id/btnAlertaVandalismo"
-                                 android:layout_width="90dp"
-                                 android:layout_height="90dp"
+                                 android:layout_width="100dp"
+                                 android:layout_height="100dp"
                                  android:layout_marginLeft="5dp"
                                  android:layout_marginTop="5dp"
                                  android:layout_marginRight="5dp"
@@ -125,8 +125,8 @@
 
                              <ImageButton
                                  android:id="@+id/btnAlertaRobo"
-                                 android:layout_width="90dp"
-                                 android:layout_height="90dp"
+                                 android:layout_width="100dp"
+                                 android:layout_height="100dp"
                                  android:layout_marginTop="5dp"
                                  android:background="@drawable/alerta_robo"
                                  tools:layout_marginLeft="5dp">
@@ -205,8 +205,8 @@
 
                              <ImageButton
                                  android:id="@+id/btnAlertaViolenciaGenero"
-                                 android:layout_width="90dp"
-                                 android:layout_height="90dp"
+                                 android:layout_width="100dp"
+                                 android:layout_height="100dp"
                                  android:layout_marginLeft="5dp"
                                  android:layout_marginTop="5dp"
                                  android:layout_marginRight="5dp"
@@ -239,8 +239,8 @@
 
                              <ImageButton
                                  android:id="@+id/btnAlertaAcosoEscolar"
-                                 android:layout_width="90dp"
-                                 android:layout_height="90dp"
+                                 android:layout_width="100dp"
+                                 android:layout_height="100dp"
                                  android:layout_marginLeft="5dp"
                                  android:layout_marginTop="5dp"
                                  android:layout_marginRight="10dp"
@@ -274,8 +274,8 @@
 
                              <ImageButton
                                  android:id="@+id/btnAlertaAgresionSexual"
-                                 android:layout_width="90dp"
-                                 android:layout_height="90dp"
+                                 android:layout_width="100dp"
+                                 android:layout_height="100dp"
                                  android:layout_marginLeft="5dp"
                                  android:layout_marginTop="5dp"
                                  android:layout_marginRight="5dp"
@@ -319,8 +319,8 @@
 
                              <ImageButton
                                  android:id="@+id/btnAlertaIncendio"
-                                 android:layout_width="90dp"
-                                 android:layout_height="90dp"
+                                 android:layout_width="100dp"
+                                 android:layout_height="100dp"
                                  android:layout_marginLeft="5dp"
                                  android:layout_marginTop="5dp"
                                  android:layout_marginRight="5dp"
@@ -353,8 +353,8 @@
 
                              <ImageButton
                                  android:id="@+id/btnAlertaInundacion"
-                                 android:layout_width="90dp"
-                                 android:layout_height="90dp"
+                                 android:layout_width="100dp"
+                                 android:layout_height="100dp"
                                  android:layout_marginLeft="5dp"
                                  android:layout_marginTop="5dp"
                                  android:layout_marginRight="10dp"
@@ -389,8 +389,8 @@
 
                              <ImageButton
                                  android:id="@+id/btnAlertaDerrumbe"
-                                 android:layout_width="90dp"
-                                 android:layout_height="90dp"
+                                 android:layout_width="100dp"
+                                 android:layout_height="100dp"
                                  android:layout_marginLeft="5dp"
                                  android:layout_marginTop="5dp"
                                  android:layout_marginRight="5dp"
