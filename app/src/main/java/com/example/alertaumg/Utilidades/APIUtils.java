@@ -1,6 +1,7 @@
 package com.example.alertaumg.Utilidades;
 
 import com.example.alertaumg.Utilidades.Servicios.AlertaService;
+import com.example.alertaumg.Utilidades.Servicios.ContactoEmergenciaService;
 import com.example.alertaumg.Utilidades.Servicios.DepartamentoService;
 import com.example.alertaumg.Utilidades.Servicios.MunicipioService;
 import com.example.alertaumg.Utilidades.Servicios.TipoAlertaService;
@@ -34,5 +35,9 @@ public class APIUtils {
 
     public static TipoAlertaService getTipoAlertaService(){
         return RetrofitClient.getClient(RetrofitClient.API_URL).create(TipoAlertaService.class);
+    }
+
+    public static ContactoEmergenciaService getContactoEmergenciaService(){
+        return RetrofitClient.getClient(RetrofitClient.API_URL).create(ContactoEmergenciaService.class);
     }
 }
