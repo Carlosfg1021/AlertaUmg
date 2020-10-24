@@ -1,5 +1,6 @@
 package com.example.alertaumg.Utilidades.Servicios;
 
+import com.example.alertaumg.Modelos.Alerta;
 import com.example.alertaumg.Modelos.RespuestaAPI;
 import com.example.alertaumg.Modelos.Usuario;
 
@@ -22,5 +23,11 @@ public interface AlertaService {
             @Field("id_usuario") int id_usuario
 
     ) throws Exception;
+
+    @POST("consultar/alertas/usuario")
+    @FormUrlEncoded
+    Call<RespuestaAPI<List<Alerta>>>obtenerAlertasUsuario(
+            @Field("id_usuario") int id
+    )throws Exception;
 
 }

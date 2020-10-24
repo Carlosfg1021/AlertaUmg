@@ -3,6 +3,7 @@ package com.example.alertaumg.Utilidades;
 import com.example.alertaumg.Utilidades.Servicios.AlertaService;
 import com.example.alertaumg.Utilidades.Servicios.DepartamentoService;
 import com.example.alertaumg.Utilidades.Servicios.MunicipioService;
+import com.example.alertaumg.Utilidades.Servicios.TipoAlertaService;
 import com.example.alertaumg.Utilidades.Servicios.UsuarioConfianzaService;
 import com.example.alertaumg.Utilidades.Servicios.UsuarioService;
 
@@ -29,5 +30,9 @@ public class APIUtils {
 
     public static UsuarioConfianzaService getUsuarioConfianzaService(){
         return RetrofitClient.getClient(RetrofitClient.API_URL).create(UsuarioConfianzaService.class);
+    }
+
+    public static TipoAlertaService getTipoAlertaService(){
+        return RetrofitClient.getClient(RetrofitClient.API_URL).create(TipoAlertaService.class);
     }
 }
