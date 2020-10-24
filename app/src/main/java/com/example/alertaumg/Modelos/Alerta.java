@@ -46,6 +46,14 @@ public class Alerta {
     @Expose
     private Time hora_commit;
 
+    @SerializedName("nombre_tipo_alerta")
+    @Expose
+    private String nombre_tipo_alerta;
+
+    @SerializedName("nombre_usuario")
+    @Expose
+    private String nombre_usuario;
+
     public int getId() {
         return id;
     }
@@ -127,4 +135,19 @@ public class Alerta {
     }
 
 
+    public String getNombre_tipo_alerta() {
+        return nombre_tipo_alerta;
+    }
+
+    public void setNombre_tipo_alerta(String nombre_tipo_alerta) {
+        this.nombre_tipo_alerta = nombre_tipo_alerta;
+    }
+
+    public String getNombre_usuario() {
+        return nombre_usuario;
+    }
+
+    public void setNombre_usuario(String nombre_usuario) {
+        this.nombre_usuario = nombre_usuario;
+    }
 }

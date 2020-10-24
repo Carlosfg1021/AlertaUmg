@@ -57,140 +57,45 @@ public class Notificaciones extends Fragment {
         //cargarlista();
        // mostraData();
 
-        try{
+       try{
 
+           APIUtils.getAlertaService().obtenerAlertasNoVistas(getActivity().getIntent().getExtras().getInt("id_usuario")).enqueue(new Callback<RespuestaAPI<List<Alerta>>>() {
+               @Override
+               public void onResponse(Call<RespuestaAPI<List<Alerta>>> call, Response<RespuestaAPI<List<Alerta>>> response) {
+                   if (response.isSuccessful()) {
+                       RespuestaAPI<List<Alerta>> respuesta = response.body();
 
-            Gson gson = new GsonBuilder().setLenient().create();
-            APIUtils.getAlertaService().obtenerAlertasUsuario(getActivity().getIntent().getExtras().getInt("id_usuario")).enqueue(new Callback<RespuestaAPI<List<Alerta>>>() {
-                @Override
-                public void onResponse(Call<RespuestaAPI<List<Alerta>>> call, Response<RespuestaAPI<List<Alerta>>> response) {
+                       if ( respuesta.getCodigo() == 1 ){
+                           List<Alerta> alerta = respuesta.getData();
+                           if (alerta != null ){
 
-                    if (response.isSuccessful()) {
-                        RespuestaAPI<List<Alerta>> respuesta = response.body();
+                               listanotificacion.clear();//Limpiamos antes de volver a listar
 
-                        if ( respuesta.getCodigo() == 1 ){
-                            List<Alerta> alertas = respuesta.getData();
-                            if (alertas != null ){
+                               for(int i=0; i<alerta.size();i++){
+                                   listanotificacion.add(new NotificacionU(alerta.get(i).getNombre_usuario(),alerta.get(i).getNombre_tipo_alerta()));
+                               }
 
+                               mostraData();
+                           }else{
+                               Toast.makeText(view.getContext(), "Usuario encontrado.", Toast.LENGTH_SHORT).show();
+                           }
+                       }else if ( respuesta.getCodigo() == 0 ){
+                           Toast.makeText(view.getContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+                       }
+                   }else{
+                       Toast.makeText(view.getContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
+                   }
+               }
 
-                                //Ya que obtenemos alerta por alerta será necesario obtener la descripción
-                                //del tipo de alerta, por lo que deberemos hacer una subconsulta a la API tipoAlerta
-                                //para obtener el tipo de alerta a través del id
+               @Override
+               public void onFailure(Call<RespuestaAPI<List<Alerta>>> call, Throwable t) {
 
-                                //Llenamos las notificaciones
-                                listanotificacion.clear();
-                                for(int i=0;i<alertas.size();i++) {
-                                    indiceUsuario.setIndice(i);
-                                    //--------------------------------Obtenemos el tipo de alerta-------------------------------
+               }
+           });
 
-                                    try {
-                                    APIUtils.getTipoAlertaService().obtenerAlertaPorId(alertas.get(i).getId_tipo_alerta()).enqueue(new Callback<RespuestaAPI<TipoAlerta>>() {
-                                        @Override
-                                        public void onResponse(Call<RespuestaAPI<TipoAlerta>> call, Response<RespuestaAPI<TipoAlerta>> response) {
-                                                if(response.isSuccessful()){
-                                                    RespuestaAPI<TipoAlerta> resAlert = response.body();
-
-                                                    if ( resAlert.getCodigo() == 1 ){
-                                                        TipoAlerta alert = resAlert.getData();
-
-                                                        if(alert!=null){
-
-                                                            //Llenamos variable de tipo de alerta para posteriormente cargar descripción en el cardview
-                                                            alertaCardView.setDescripcion(alert.getDescripcion());
-                                                            alertaCardView.setId(alert.getId());
-                                                            alertaCardView.setEstado(alert.getEstado());
-
-                                                        }else{
-                                                            //Toast.makeText(view.getContext(), "Tipo de alerta encontrada.", Toast.LENGTH_SHORT).show();
-                                                        }
-
-                                                    }else if ( resAlert.getCodigo() == 0 ){
-                                                        Toast.makeText(view.getContext(), resAlert.getMensaje(), Toast.LENGTH_SHORT).show();
-                                                    }
-
-                                                }else{
-                                                    Toast.makeText(view.getContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
-                                                }
-                                        }
-
-                                        @Override
-                                        public void onFailure(Call<RespuestaAPI<TipoAlerta>> call, Throwable t) {
-
-                                        }
-                                    });
-
-                                }catch(Exception e){
-                                        Toast.makeText(view.getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
-                                }
-                         //------------------------------OBTENEMOS EL NOMBRE DE USUARIO QUE EMITIÓ LA ALERTA----------
-
-                                    try{
-                                        APIUtils.getUsuarioService().obtenerTodos().enqueue(new Callback<RespuestaAPI<ArrayList<Usuario>>>() {
-                                            @Override
-                                            public void onResponse(Call<RespuestaAPI<ArrayList<Usuario>>> call, Response<RespuestaAPI<ArrayList<Usuario>>> response) {
-                                                if(response.isSuccessful()){
-                                                    RespuestaAPI<ArrayList<Usuario>> resUs = response.body();
-
-                                                    if ( resUs.getCodigo() == 1 ){
-                                                        ArrayList<Usuario> us = resUs.getData();
-
-                                                        if(us!=null){
-
-                                                            //Llenamos variable de tipo de alerta para posteriormente cargar descripción en el cardview
-
-                                                            for(int u=0; u<us.size();u++){
-                                                                if(us.get(u).getId()==alertas.get(indiceUsuario.getIndice()).getId_usuario()){
-                                                                    usuarioCardView=us.get(u);//Encontramos el usuario
-                                                                }
-                                                            }
-
-                                                        }else{
-                                                            //Toast.makeText(view.getContext(), "Tipo de alerta encontrada.", Toast.LENGTH_SHORT).show();
-                                                        }
-
-                                                    }else if ( resUs.getCodigo() == 0 ){
-                                                        Toast.makeText(view.getContext(), resUs.getMensaje(), Toast.LENGTH_SHORT).show();
-                                                    }
-
-                                                }else{
-                                                    Toast.makeText(view.getContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-
-                                            @Override
-                                            public void onFailure(Call<RespuestaAPI<ArrayList<Usuario>>> call, Throwable t) {
-
-                                            }
-                                        });
-                                    }catch (Exception e){
-
-                                    }
-
-                                    //----------Solo queda añadir a la lista los datos----------------------------------------
-                                    listanotificacion.add(new NotificacionU(usuarioCardView.getNombre()+" "+usuarioCardView.getApellido(), alertaCardView.getDescripcion()));
-                                }
-                                mostraData();
-                            }else{
-                                Toast.makeText(view.getContext(), "Alertas encontradas.", Toast.LENGTH_SHORT).show();
-                            }
-                        }else if ( respuesta.getCodigo() == 0 ){
-                            Toast.makeText(view.getContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
-                        Toast.makeText(view.getContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-
-                @Override
-                public void onFailure(Call<RespuestaAPI<List<Alerta>>> call, Throwable t) {
-
-                }
-            });
-
-        }catch(Exception e){
-            Toast.makeText(view.getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
-        }
+       }catch (Exception e){
+           Toast.makeText(view.getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+       }
 
 
         return view;
@@ -207,7 +112,6 @@ public class Notificaciones extends Fragment {
         recyclerViewNotificacion.setLayoutManager(new LinearLayoutManager(getContext()));
         adaptadorNotificacion = new AdaptadorNotificacion(getContext(),listanotificacion);
         recyclerViewNotificacion.setAdapter(adaptadorNotificacion);
-
 
     }
 

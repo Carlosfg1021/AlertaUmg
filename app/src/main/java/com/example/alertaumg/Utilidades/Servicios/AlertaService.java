@@ -30,4 +30,11 @@ public interface AlertaService {
             @Field("id_usuario") int id
     )throws Exception;
 
+    @POST("obtener/alerta/no/vistas")
+    @FormUrlEncoded
+
+    Call<RespuestaAPI<List<Alerta>>>obtenerAlertasNoVistas(
+            @Field("id_usuario") int id
+    )throws  Exception;
+
 }
