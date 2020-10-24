@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +27,7 @@ public class Perfil extends Fragment {
     TextView lblNombre, lblApellido, lblDepartamento, lblMunicipio, lblDireccion, lblpersonaNombre, lblTelefono;
     ImageView personaImagenPerfil;
     Button btnEditar;
+    public static String urlFotoGeneral;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,14 +85,32 @@ public class Perfil extends Fragment {
         lblMunicipio = vista.findViewById(R.id.lblMunicipio);
         lblDireccion = vista.findViewById(R.id.lblDireccion);
         lblTelefono = vista.findViewById(R.id.lblTelefono);
+
+        personaImagenPerfil = vista.findViewById(R.id.personaImagenPerfil);
 //lblApellido;
         lblNombre.setText(getActivity().getIntent().getExtras().getString("nombre"));
         lblApellido.setText(getActivity().getIntent().getExtras().getString("apellido"));
         lblTelefono.setText(getActivity().getIntent().getExtras().getString("telefono"));
 
         lblpersonaNombre.setText(lblNombre.getText()+" "+lblApellido.getText());
+        String urlFoto = getActivity().getIntent().getExtras().getString(("fotografia"));
+
+        //Toast.makeText(getActivity().getApplicationContext(),urlFoto,Toast.LENGTH_SHORT).show();
+
+        //cargar photo
+        try{
+            Glide.with(getActivity())
+                    .load(urlFoto )
+                    .into((ImageView) personaImagenPerfil);
+        }catch (Exception e){
+
+        }
+
+
+
 
         String dir = getActivity().getIntent().getExtras().getString("direccion");
+
         String departamento="";
         String municipio="";
         String direccion="";
