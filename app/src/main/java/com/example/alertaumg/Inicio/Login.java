@@ -113,6 +113,8 @@ public class Login extends AppCompatActivity {
                                     intent.putExtra("correo",usuario.getEmail());
                                     intent.putExtra("telefono",usuario.getNumero_telefono());
                                     intent.putExtra("id_usuario",usuario.getId());
+                                    intent.putExtra("fotografia",usuario.getFotografia());
+
 
                                     startActivity(intent);
                                 }else{
@@ -164,11 +166,14 @@ public class Login extends AppCompatActivity {
         }
     }
 
+
+
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             // Signed in successfully, show authenticated UI.
+            String urlFoto2 = account.getPhotoUrl().toString();
 
             Toast.makeText(getApplicationContext(),account.getEmail(),Toast.LENGTH_SHORT).show();
             signOut();//Cerramos sesión
@@ -177,7 +182,7 @@ public class Login extends AppCompatActivity {
             intent.putExtra("correo",account.getEmail());
             intent.putExtra("nombre",account.getGivenName());
             intent.putExtra("apellido",account.getFamilyName());
-            intent.putExtra("fotografia",account.getPhotoUrl().toString());
+            intent.putExtra("fotografia",urlFoto2);
 
             startActivity(intent);
         } catch (ApiException e) {

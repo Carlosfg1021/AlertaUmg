@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.alertaumg.Contenedor;
 import com.example.alertaumg.Inicio.Login;
 import com.example.alertaumg.Modelos.Departamento;
@@ -39,6 +41,7 @@ public class RegistroUsuario extends AppCompatActivity {
     Spinner spinerDepartamento, spinerMunicipio;
     Button btnRegistrar;
     String direccionFinal;
+    ImageView editarImagenPerfil;
 
     String[] arraySpinerDepartamento;
 
@@ -58,6 +61,14 @@ public class RegistroUsuario extends AppCompatActivity {
         txtNombre.setText(getIntent().getStringExtra("nombre"));
         txtApellido.setText(getIntent().getStringExtra("apellido"));
         txtCorreo.setText(getIntent().getStringExtra("correo"));
+
+        try{
+            Glide.with(this)
+                    .load(getIntent().getStringExtra("fotografia") )
+                    .into((ImageView) editarImagenPerfil);
+        }catch (Exception e){
+
+        }
 
         llenarDatos();//llenamos datos de departamentos y municipios
 
@@ -90,6 +101,7 @@ public class RegistroUsuario extends AppCompatActivity {
         btnRegistrar = findViewById(R.id.btnRegistrar);
         txtRepetirContrasena = findViewById(R.id.txtRepetirContrasena);
         txtTelefono = findViewById(R.id.txtTelefono);
+        editarImagenPerfil = findViewById(R.id.editarImagenPerfil);
     }
 
     public void llenarDatos() {
@@ -312,6 +324,7 @@ public class RegistroUsuario extends AppCompatActivity {
 
         String departamento = spinerDepartamento.getSelectedItem().toString();
         String municipio = spinerMunicipio.getSelectedItem().toString();
+        String fotourl = getIntent().getStringExtra("fotografia");
 
         if(!nombre.isEmpty() && !apellido.isEmpty() && !numero_telefono.isEmpty() && !email.isEmpty()
                 && !contrasenia.isEmpty() && !contrasenia_confirm.isEmpty() && !departamento.isEmpty()
