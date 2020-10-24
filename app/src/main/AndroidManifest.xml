@@ -17,25 +17,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SeguirUsuario"></activity>
+        <activity android:name=".SeguirUsuario" android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ContactosEmergenciaActivity"
+            android:name=".ContactosEmergenciaActivity" android:screenOrientation="portrait"
             android:label="@string/title_activity_contactos_emergencia"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EditUser" />
-        <activity android:name=".Funcionalidad.EmitirAlerta" />
-        <activity android:name=".Contenedor" />
-        <activity android:name=".Funcionalidad.RegistroUsuario" />
+        <activity android:name=".EditUser" android:screenOrientation="portrait"/>
+        <activity android:name=".Funcionalidad.EmitirAlerta" android:screenOrientation="portrait"/>
+        <activity android:name=".Contenedor" android:screenOrientation="portrait"/>
+        <activity android:name=".Funcionalidad.RegistroUsuario" android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".Inicio.Login"
+            android:name=".Inicio.Login" android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".Inicio.Portada"
+            android:name=".Inicio.Portada" android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

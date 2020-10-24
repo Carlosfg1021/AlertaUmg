@@ -12,7 +12,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_contactos_emergencia" />
+    <include layout="@layout/content_editar_perfil" />
 
     <LinearLayout
         android:layout_width="match_parent"

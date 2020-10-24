@@ -37,7 +37,7 @@
 
             <LinearLayout
                 android:id="@+id/layout_1"
-                android:layout_width="119dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
                 android:layout_marginLeft="0dp"
@@ -67,7 +67,7 @@
 
             <LinearLayout
                 android:id="@+id/layout_2"
-                android:layout_width="128dp"
+                android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
