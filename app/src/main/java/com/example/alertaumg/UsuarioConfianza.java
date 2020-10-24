@@ -102,6 +102,7 @@ public class UsuarioConfianza extends Fragment {
 
         recyclerViewUsuarios.setLayoutManager(new LinearLayoutManager(getContext()));
         adaptadorUsuarios = new AdaptadorUsuarios(getContext(),listausuario);
+        adaptadorUsuarios.miId = my_user_id;
         recyclerViewUsuarios.setAdapter(adaptadorUsuarios);
 
 
@@ -158,7 +159,7 @@ public class UsuarioConfianza extends Fragment {
                                     usEnviar = usuarioLista.get(i);
                                     listausuario.add(new Usuarios(usuarioLista.get(i).getNombre() + " "+usuarioLista.get(i).getApellido(),departamento,usEnviar));
                                     //user_confianza_global_id=usuarioLista.get(i).getId();//id de usuario de confianza
-                                    //my_user_id = getActivity().getIntent().getExtras().getInt("id_usuario");//mi id
+                                    my_user_id = getActivity().getIntent().getExtras().getInt("id_usuario");//mi id
 
                                     //Toast.makeText(getActivity().getApplicationContext(),listausuario.get(i).getNombre(),Toast.LENGTH_SHORT).show();
                                 }

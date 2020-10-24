@@ -29,6 +29,7 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
 
     public Usuario usuario;
     public int posicionPublica;
+    public int miId;
     LayoutInflater inflater;
     ArrayList<Usuarios> model;
     private View.OnClickListener listener;
@@ -97,6 +98,7 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
                 public void onClick(View view) {
                     Intent intent = new Intent(itemView.getContext(), SeguirUsuario.class);
 
+                    intent.putExtra("id_usuario",miId);
                     intent.putExtra("id_confianza",usuario.getId());
                     intent.putExtra("nombre_confianza",usuario.getNombre());
                     intent.putExtra("apellido_confianza",usuario.getApellido());
