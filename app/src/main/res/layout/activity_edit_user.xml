@@ -8,11 +8,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="116dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/boton_redondo_celeste"
-        >
-
+        android:background="@drawable/boton_redondo_celeste">
 
 
     </LinearLayout>
@@ -44,25 +42,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="75dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="7dp"
                 android:text="Editar Datos Personales"
                 android:textColor="@color/heading"
-                android:textStyle="bold"
-                android:textSize="26sp" />
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -79,15 +77,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"
+                    android:ems="15"
+                    android:enabled="false"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:hint="Nombre"
-                    android:ems="15"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:enabled="false"
                     android:maxLines="1"
-                    />
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -95,8 +92,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -115,15 +112,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"
-                    android:gravity="center"
-                    android:fontFamily="sans-serif"
-                    android:hint="Apellido"
                     android:ems="15"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
                     android:enabled="false"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:hint="Apellido"
                     android:maxLines="1"
-                    />
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -131,8 +127,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -149,10 +145,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"
+                    android:ems="15"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:hint="Nombre"
-                    android:ems="15"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -163,8 +159,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -193,8 +189,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -223,8 +219,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -241,10 +237,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"
+                    android:ems="15"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:hint="Direccion"
-                    android:ems="15"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -254,8 +250,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -272,10 +268,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"
+                    android:ems="15"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:hint="Contraseña"
-                    android:ems="15"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -285,8 +281,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -303,10 +299,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"
+                    android:ems="15"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:hint="Repetir contraseña"
-                    android:ems="15"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -316,8 +312,8 @@
                 android:id="@+id/btnGuardar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="0dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/boton_redondo_celeste"
                 android:text="Guardar"

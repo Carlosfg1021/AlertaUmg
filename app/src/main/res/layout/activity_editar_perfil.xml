@@ -12,8 +12,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_editar_perfil" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,11 +46,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="142dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/boton_redondo_celeste"
-        >
-
+        android:background="@drawable/boton_redondo_celeste">
 
 
     </LinearLayout>
@@ -70,17 +66,24 @@
         android:id="@+id/personaNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre_apellido"
-        android:textSize="23sp"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="150dp"
         android:layout_marginLeft="150dp"
-        />
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:text="Nombre_apellido"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="210dp">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="200dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,43 +91,43 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="75dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="7dp"
                 android:text="Editar Datos Personales"
                 android:textColor="@color/heading"
-                android:textStyle="bold"
-                android:textSize="26sp" />
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Nombre"
-                android:textColor="@color/heading"
-                android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Nombre"
+                    android:textColor="@color/heading"
+                    android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/txtNombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:hint="Nombre"
-                android:ems="15"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/txtNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:ems="15"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:hint="Nombre"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -132,32 +135,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Apellido"
-                android:textColor="@color/heading"
-                android:textSize="20sp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Apellido"
+                    android:textColor="@color/heading"
+                    android:textSize="20sp"
 
-                />
+                    />
 
-            <EditText
-                android:id="@+id/txtApellido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:fontFamily="sans-serif"
-                android:hint="Apellido"
-                android:ems="15"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/txtApellido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:ems="15"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:hint="Apellido"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <include layout="@layout/content_editar_perfil" />
 
             </androidx.cardview.widget.CardView>
 
@@ -165,8 +170,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -183,10 +188,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"
+                    android:ems="15"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:hint="Nombre"
-                    android:ems="15"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -197,28 +202,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Departamento"
-                android:textColor="@color/heading"
-                android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Departamento"
+                    android:textColor="@color/heading"
+                    android:textSize="20sp" />
 
-            <Spinner
-                android:id="@+id/sprDepartamento"
-                android:layout_width="340dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="35dp"
-                android:fontFamily="sans-serif"
-                android:hint="Seleccione departamento"
-                android:textColor="#000000"
-                android:textSize="18dp" />
+                <Spinner
+                    android:id="@+id/sprDepartamento"
+                    android:layout_width="340dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="sans-serif"
+                    android:hint="Seleccione departamento"
+                    android:textColor="#000000"
+                    android:textSize="18dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -227,28 +232,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Municipio"
-                android:textColor="@color/heading"
-                android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Municipio"
+                    android:textColor="@color/heading"
+                    android:textSize="20sp" />
 
-            <Spinner
-                android:id="@+id/sprMunicipio"
-                android:layout_width="340dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="35dp"
-                android:fontFamily="sans-serif"
-                android:hint="Seleccione municipio"
-                android:textColor="#000000"
-                android:textSize="18dp" />
+                <Spinner
+                    android:id="@+id/sprMunicipio"
+                    android:layout_width="340dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="sans-serif"
+                    android:hint="Seleccione municipio"
+                    android:textColor="#000000"
+                    android:textSize="18dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -257,30 +262,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Direccion"
-                android:textColor="@color/heading"
-                android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Direccion"
+                    android:textColor="@color/heading"
+                    android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/txtDireccion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:hint="Direccion"
-                android:ems="15"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/txtDireccion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:ems="15"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:hint="Direccion"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -288,8 +293,8 @@
                 android:id="@+id/btnGuardar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="0dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/boton_redondo_celeste"
                 android:text="Guardar"
