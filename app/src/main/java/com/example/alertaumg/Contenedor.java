@@ -101,17 +101,18 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_mi_perfil);
                         drawerLayout.closeDrawers();
                         break;
-                    case R.id.btn_nav_notification_iz:
+
+                        case R.id.btn_nav_notification_iz:
                         fragment = new Notificaciones();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_notification);
                         drawerLayout.closeDrawers();
                         break;
 
-                    case R.id.btn_nav_usuarios_iz:
+                   /* case R.id.btn_nav_usuarios_iz:
                         fragment = new UsuarioConfianza();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_usuariosconfianza);
                         drawerLayout.closeDrawers();
-                        break;
+                        break;*/
 
                     case R.id.btn_contactos_emergencia_iz:
                         Intent intent= new Intent (Contenedor.this, ContactosEmergenciaActivity.class);
