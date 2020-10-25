@@ -8,7 +8,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.alertaumg.Inicio.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -38,6 +41,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
 
         setToolBar();
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
 
 
         menuNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -121,6 +126,18 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
 
                     case R.id.btn_cerrar:
                          drawerLayout.closeDrawers();
+
+                        SharedPreferences sharedPreferences = getSharedPreferences("preferencias_sistema_alerta", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.remove("usuario_logueado");
+                        editor.remove("usuario_json");
+                        editor.commit(); // commit para síncrono o usar apply() para asícrono
+
+                        Intent intent2 = new Intent(Contenedor.this, Login.class);
+
+                        startActivity(intent2);
+                        finish();
+
                          break;
 
                 }
@@ -129,6 +146,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         });
 
     }
+
+
 
     //Función para cargar el fragmento al contenedor principal
 

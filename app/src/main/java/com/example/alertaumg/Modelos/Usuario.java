@@ -32,7 +32,7 @@ public class Usuario {
     @Expose
     private String direccion;
 
-    @SerializedName("fotografia")
+    @SerializedName("url_foto")
     @Expose
     private String fotografia;
 

@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +51,7 @@ public class Login extends AppCompatActivity {
     com.google.android.gms.common.SignInButton btnLoginGoogle;
     private String  nombre, apellido,email;
     private Uri foto;
+    String urlFoto2;
     private GoogleSignInClient mGoogleSignInClient;
     private int RC_SIGN_IN=0;
 
@@ -57,6 +61,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         reconocerObjetos();//Reconocemos objetos del xml (botones..etc)
+        recordarUsuario();
 
         btnLoginGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +92,35 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    private void recordarUsuario() {
+        // comprobamos si el usuario ya se logueo anteriormente
+        SharedPreferences sharedPreferences = getSharedPreferences("preferencias_sistema_alerta", Context.MODE_PRIVATE);
+        boolean hay_usuario_logueado= sharedPreferences.getBoolean("usuario_logueado", false);
+
+        if ( hay_usuario_logueado == true ){
+            Gson gson = new Gson();
+            String json = sharedPreferences.getString("usuario_json", "");
+            Usuario usuario = gson.fromJson(json, Usuario.class);
+
+            // Toast.makeText(MainActivity.this, usuario_recuperado.toString(), Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(Login.this, Contenedor.class);
+            // pasar datos a la otra activity
+
+            intent.putExtra("nombre",usuario.getNombre());
+            intent.putExtra("apellido",usuario.getApellido());
+            intent.putExtra("direccion",usuario.getDireccion());
+            intent.putExtra("correo",usuario.getEmail());
+            intent.putExtra("telefono",usuario.getNumero_telefono());
+            intent.putExtra("id_usuario",usuario.getId());
+            intent.putExtra("fotografia",usuario.getFotografia());
+
+
+            startActivity(intent);
+            finish(); // cerrar el ciclo de vida de esta activity
+        }
+    }
+
     private void login(){
         String email    =   txtcorreo.getText().toString().trim();
         String password =   txtpassword.getText().toString().trim();
@@ -98,12 +132,29 @@ public class Login extends AppCompatActivity {
                 APIUtils.getUsuarioService().login(email, password).enqueue(new Callback<RespuestaAPI<Usuario>>() {
                     @Override
                     public void onResponse(Call<RespuestaAPI<Usuario>> call, Response<RespuestaAPI<Usuario>> response) {
+
                         if (response.isSuccessful()) {
                             RespuestaAPI<Usuario> respuesta = response.body();
 
                             if ( respuesta.getCodigo() == 1 ){
                                 Usuario usuario = respuesta.getData();
                                 if ( usuario != null ){
+
+
+                                    SharedPreferences sharedPreferences = getSharedPreferences("preferencias_sistema_alerta", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putBoolean("usuario_logueado", true);
+                                    // podemos guardar objetos usando la libreria GSON
+                                    Gson gson_preferences = new Gson();
+                                    String json_usuario = gson_preferences.toJson(usuario);
+                                    editor.putString("usuario_json", json_usuario);
+                                    editor.commit(); // commit para síncrono o usar apply() para asícrono
+
+
+
+
+
+
                                     //Toast.makeText(Login.this, usuario.toString(), Toast.LENGTH_SHORT).show();
 
                                     Intent intent = new Intent(Login.this, Contenedor.class);
@@ -114,6 +165,7 @@ public class Login extends AppCompatActivity {
                                     intent.putExtra("telefono",usuario.getNumero_telefono());
                                     intent.putExtra("id_usuario",usuario.getId());
                                     intent.putExtra("fotografia",usuario.getFotografia());
+                                    //intent.putExtra("usuario_json", (Parcelable) usuario); //recordamos el login
 
 
                                     startActivity(intent);
@@ -173,7 +225,7 @@ public class Login extends AppCompatActivity {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             // Signed in successfully, show authenticated UI.
-            String urlFoto2 = account.getPhotoUrl().toString();
+             urlFoto2 = account.getPhotoUrl().toString();
 
             Toast.makeText(getApplicationContext(),account.getEmail(),Toast.LENGTH_SHORT).show();
             signOut();//Cerramos sesión

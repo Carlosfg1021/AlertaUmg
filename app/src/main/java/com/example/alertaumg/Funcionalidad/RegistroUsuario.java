@@ -332,7 +332,7 @@ public class RegistroUsuario extends AppCompatActivity {
 
             try{
                 Gson gson = new GsonBuilder().setLenient().create();
-                APIUtils.getUsuarioService().registrarUsuario(nombre,apellido,numero_telefono,email,contrasenia,contrasenia_confirm,direccionFinal).enqueue(new Callback<RespuestaAPI<String>>() {
+                APIUtils.getUsuarioService().registrarUsuario(nombre,apellido,numero_telefono,email,contrasenia,contrasenia_confirm,direccionFinal, fotourl).enqueue(new Callback<RespuestaAPI<String>>() {
                     @Override
                     public void onResponse(Call<RespuestaAPI<String>> call, Response<RespuestaAPI<String>> response) {
                         if (response.isSuccessful()) {

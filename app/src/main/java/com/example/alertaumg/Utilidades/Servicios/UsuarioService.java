@@ -35,7 +35,8 @@ public interface UsuarioService {
             @Field("email") String email,
             @Field("contrasenia") String contrasenia,
             @Field("contrasenia_confirm") String contrasenia_confirm,
-            @Field("direccion") String direccion
+            @Field("direccion") String direccion,
+            @Field("url_foto") String url_foto
     ) throws Exception;
 
     @POST("actualizar/usuario")
