@@ -3,6 +3,8 @@ package com.example.alertaumg.Modelos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 public class ContactosEmergencia {
@@ -30,6 +32,7 @@ public class ContactosEmergencia {
     @SerializedName("telefonos")
     @Expose
     private List<String> telefonos;
+
 
 
     public int getId() {
@@ -64,13 +67,6 @@ public class ContactosEmergencia {
         this.estado = estado;
     }
 
-    public String getNumeros_telefono() {
-        return numeros_telefono;
-    }
-
-    public void setNumeros_telefono(String numeros_telefono) {
-        this.numeros_telefono = numeros_telefono;
-    }
 
     public List<String> getTelefonos() {
         return telefonos;
@@ -79,4 +75,14 @@ public class ContactosEmergencia {
     public void setTelefonos(List<String> telefonos) {
         this.telefonos = telefonos;
     }
+
+    public String getNumeros_telefono() {
+        return numeros_telefono;
+    }
+
+    public void setNumeros_telefono(String numeros_telefono) {
+        this.numeros_telefono = numeros_telefono;
+    }
+
+
 }
