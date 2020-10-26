@@ -62,8 +62,10 @@ elements=new ArrayList<>();
                                     elements.clear();//Limpiamos antes de cada búsqueda
                                     String numerosContacto="";
                                     for(int i=0; i<contEmer.size();i++){
+                                        numerosContacto="";
                                         for(int r=0; r<contEmer.get(i).getTelefonos().size(); r++){
                                             numerosContacto = numerosContacto+"\n"+contEmer.get(i).getTelefonos().get(r).getNumero_telefono();
+
                                         }
                                         elements.add(new ConctactosU(contEmer.get(i).getNombre(),numerosContacto));
                                     }

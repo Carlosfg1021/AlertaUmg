@@ -32,7 +32,7 @@
                 android:layout_gravity="center"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
-                android:src="@drawable/ic_notificacion"/>
+                android:src="@drawable/ic_phone"/>
 
             <LinearLayout
                 android:id="@+id/layout_1"

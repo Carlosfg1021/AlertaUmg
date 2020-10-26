@@ -134,6 +134,12 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                         startActivity(intent);
                         break;
 
+                    case R.id.btn_acercade:
+                        Intent intent1 = new Intent(Contenedor.this,Acercade.class);
+                        startActivity(intent1);
+                        break;
+
+
                     case R.id.btn_cerrar:
                          drawerLayout.closeDrawers();
 
