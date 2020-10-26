@@ -15,12 +15,13 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdaptadorContacto extends RecyclerView.Adapter<AdaptadorContacto.ViewHolder> {
+public class AdaptadorContacto extends RecyclerView.Adapter<AdaptadorContacto.ViewHolder> implements View.OnClickListener {
 
 
    private List<ConctactosU> nData;
    private LayoutInflater nInflater;
    private Context context;
+    private View.OnClickListener listener;
 
    public AdaptadorContacto(List<ConctactosU> itemList, Context context){
 
@@ -39,6 +40,7 @@ public class AdaptadorContacto extends RecyclerView.Adapter<AdaptadorContacto.Vi
     @Override
     public AdaptadorContacto.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = nInflater.inflate(R.layout.cardview_contactos,null);
+        view.setOnClickListener(this);
         return new AdaptadorContacto.ViewHolder(view);
     }
 
@@ -53,6 +55,18 @@ public class AdaptadorContacto extends RecyclerView.Adapter<AdaptadorContacto.Vi
     public void setItems(List<ConctactosU> items){
 
        nData = items;
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(listener!=null){
+            listener.onClick(view);
+        }
+    }
+
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener = listener;
 
     }
 

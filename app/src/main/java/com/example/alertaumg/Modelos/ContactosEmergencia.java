@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactosEmergencia {
@@ -31,9 +32,7 @@ public class ContactosEmergencia {
 
     @SerializedName("telefonos")
     @Expose
-    private List<String> telefonos;
-
-
+    private ArrayList<Telefonos> telefonos;
 
     public int getId() {
         return id;
@@ -67,15 +66,6 @@ public class ContactosEmergencia {
         this.estado = estado;
     }
 
-
-    public List<String> getTelefonos() {
-        return telefonos;
-    }
-
-    public void setTelefonos(List<String> telefonos) {
-        this.telefonos = telefonos;
-    }
-
     public String getNumeros_telefono() {
         return numeros_telefono;
     }
@@ -84,5 +74,11 @@ public class ContactosEmergencia {
         this.numeros_telefono = numeros_telefono;
     }
 
+    public ArrayList<Telefonos> getTelefonos() {
+        return telefonos;
+    }
 
+    public void setTelefonos(ArrayList<Telefonos> telefonos) {
+        this.telefonos = telefonos;
+    }
 }
