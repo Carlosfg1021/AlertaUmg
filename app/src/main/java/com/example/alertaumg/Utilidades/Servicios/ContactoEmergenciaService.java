@@ -14,7 +14,6 @@ import retrofit2.http.POST;
 public interface ContactoEmergenciaService {
 
     @POST("obtener/contactos/emergencia")
-
     Call<RespuestaAPI<List<ContactosEmergencia>>>obtenerContactosEmergencia(
     )throws  Exception;
 

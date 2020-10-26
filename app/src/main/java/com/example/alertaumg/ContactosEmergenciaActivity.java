@@ -7,9 +7,11 @@ import com.example.alertaumg.Adaptadores.AdaptadorContacto;
 import com.example.alertaumg.Adaptadores.AdaptadorNotificacion;
 import com.example.alertaumg.Entidades.ConctactosU;
 import com.example.alertaumg.Entidades.NotificacionU;
+import com.example.alertaumg.Entidades.Usuarios;
 import com.example.alertaumg.Modelos.Alerta;
 import com.example.alertaumg.Modelos.ContactosEmergencia;
 import com.example.alertaumg.Modelos.RespuestaAPI;
+import com.example.alertaumg.Modelos.Usuario;
 import com.example.alertaumg.Utilidades.APIUtils;
 import com.example.alertaumg.Utilidades.Servicios.ContactoEmergenciaService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,8 +40,6 @@ public class ContactosEmergenciaActivity extends AppCompatActivity {
 
    List<ConctactosU> elements;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,55 +48,45 @@ public class ContactosEmergenciaActivity extends AppCompatActivity {
 elements=new ArrayList<>();
         //init();
 
-        try{
-            Gson gson = new GsonBuilder().setLenient().create();
-            APIUtils.getContactoEmergenciaService().obtenerContactosEmergencia().enqueue(new Callback<RespuestaAPI<List<ContactosEmergencia>>>() {
-                @Override
-                public void onResponse(Call<RespuestaAPI<List<ContactosEmergencia>>> call, Response<RespuestaAPI<List<ContactosEmergencia>>> response) {
-                    if (response.isSuccessful()) {
-                        RespuestaAPI<List<ContactosEmergencia>> respuesta = response.body();
+            try{
+                APIUtils.getContactoEmergenciaService().obtenerContactosEmergencia().enqueue(new Callback<RespuestaAPI<List<ContactosEmergencia>>>() {
+                    @Override
+                    public void onResponse(Call<RespuestaAPI<List<ContactosEmergencia>>> call, Response<RespuestaAPI<List<ContactosEmergencia>>> response) {
+                        if (response.isSuccessful()) {
+                            RespuestaAPI<List<ContactosEmergencia>> respuesta = response.body();
 
-                        if ( respuesta.getCodigo() == 1 ){
-                            List<ContactosEmergencia> contEmerg = respuesta.getData();
-                            if (contEmerg != null ){
-                                String nombreContactoEmergencia="";
-                                String telefonosEmergencia="";
-                                elements.clear();//Limpiamos antes de volver a listar
+                            if ( respuesta.getCodigo() == 1 ){
+                                List<ContactosEmergencia> contEmer = respuesta.getData();
+                                if ( contEmer != null ){
+                                    //Toast.makeText(Login.this, usuario.toString(), Toast.LENGTH_SHORT).show();
+                                    elements.clear();//Limpiamos antes de cada búsqueda
+                                    String numerosContacto="";
+                                    for(int i=0; i<contEmer.size();i++){
+                                        for(int r=0; r<contEmer.get(i).getTelefonos().size(); r++){
+                                            numerosContacto = numerosContacto+"\n"+contEmer.get(i).getTelefonos().get(r).getNumero_telefono();
+                                        }
+                                        elements.add(new ConctactosU(contEmer.get(i).getNombre(),numerosContacto));
+                                    }
+                                    init();
+                                }else{
 
-                                for(int i=0; i<contEmerg.size();i++){
-
-                                   for(int a=0; a<contEmerg.get(i).getTelefonos().size(); a++){
-                                       telefonosEmergencia= telefonosEmergencia+"\n"+contEmerg.get(i).getTelefonos().get(a);
-                                   }
-
-                                   nombreContactoEmergencia = contEmerg.get(i).getNombre();
-                                   elements.add(new ConctactosU(nombreContactoEmergencia,telefonosEmergencia));
-                                   telefonosEmergencia="";//Limpiamos telefonos para volver a cargar otra lista cuando entremos al ciclo for
                                 }
-
-                                init();//Aqui mostramos los resultados
-
-                            }else{
-                                Toast.makeText(getApplicationContext(), "Estos son los números de emergencia", Toast.LENGTH_SHORT).show();
+                            }else if ( respuesta.getCodigo() == 0 ){
+                                Toast.makeText(getApplicationContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
                             }
-                        }else if ( respuesta.getCodigo() == 0 ){
-                            Toast.makeText(getApplicationContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
                         }
-                    }else{
-                        Toast.makeText(getApplicationContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
                     }
-                }
 
-                @Override
-                public void onFailure(Call<RespuestaAPI<List<ContactosEmergencia>>> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<RespuestaAPI<List<ContactosEmergencia>>> call, Throwable t) {
 
-                }
-            });
-
-        }catch (Exception e){
-            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
-        }
-
+                    }
+                });
+            }catch (Exception e){
+                Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            }
 
     }
 
@@ -109,6 +99,21 @@ elements=new ArrayList<>();
         RecyclerView recyclerView = findViewById(R.id.recycleview_contactos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //-------------------eventos-----------------
+
+        adaptadorContacto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(),"Seleccionado: "+elements.get(recyclerView.getChildAdapterPosition(view)).getNombre(),Toast.LENGTH_SHORT).show();
+
+                //-----------AQUÍ MANDAMOS A LLAMAR AL ACTIVITY QUE NOS MOSTRARÁ LOS DETALLES DE LA TIENDA
+
+
+            }
+        });
+
+
         recyclerView.setAdapter(adaptadorContacto);
     }
 
