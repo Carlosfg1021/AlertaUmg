@@ -14,11 +14,10 @@
         android:orientation="vertical"
         >
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/menuImagenPerfil"
-            android:layout_width="115dp"
+        <ImageView
+            android:id="@+id/imagenmenu"
+            android:layout_width="105dp"
             android:layout_height="90dp"
-            android:layout_marginLeft="0dp"
             />
 
         <TextView

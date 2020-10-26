@@ -11,14 +11,17 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.alertaumg.Inicio.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -29,6 +32,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
     com.google.android.material.navigation.NavigationView menuLateral;
     private androidx.drawerlayout.widget.DrawerLayout drawerLayout;
     TextView emailMenu, nombreUsuarioMenu;
+    ImageView imagenlateral;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         setContentView(R.layout.activity_contenedor);
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
+        imagenlateral = (ImageView) findViewById(R.id.imagenmenu);
+
 
         //menuNavegacion.setOnNavigationItemSelectedListener(this);
 
@@ -43,12 +50,11 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
 
-
-
         menuNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
+
 
                 switch (item.getItemId()){
                     case R.id.btn_nav_alerta_rapida:
@@ -80,8 +86,11 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         nombreUsuarioMenu = (TextView) headerView.findViewById(R.id.menuNombreUsuario);
         emailMenu = (TextView) headerView.findViewById(R.id.menuCorreoUsuario);
 
+
         nombreUsuarioMenu.setText(getIntent().getStringExtra("nombre")+" "+ getIntent().getStringExtra("apellido"));
         emailMenu.setText(getIntent().getStringExtra("correo"));
+
+
 
     //Añadimos evento para cargar la opcion seleccionada del menu en el contenedor principal
 
@@ -89,6 +98,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
+
 
                 switch (item.getItemId()){
                     case R.id.btn_nav_alerta_rapida_iz:
@@ -213,5 +223,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }
