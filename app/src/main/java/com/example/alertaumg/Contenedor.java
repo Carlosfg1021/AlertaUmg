@@ -12,6 +12,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.alertaumg.Funcionalidad.AlertasPendientes;
 import com.example.alertaumg.Inicio.BackgroundService;
 import com.example.alertaumg.Inicio.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -35,6 +38,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
     TextView emailMenu, nombreUsuarioMenu;
     ImageView imagenlateral;
 
+    MenuItem menuItemARapida, menuItemAEspecifica, menuItemPerfil, menuItemNotificacion, menuItemUsConf;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +47,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         setContentView(R.layout.activity_contenedor);
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
-        imagenlateral = (ImageView) findViewById(R.id.imagenmenu);
 
+        imagenlateral = (ImageView) findViewById(R.id.imagenmenu);
 
         //menuNavegacion.setOnNavigationItemSelectedListener(this);
 
@@ -51,28 +56,38 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
 
+
         menuNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
-
+                AlertasPendientes alertasPendientes = new AlertasPendientes();
 
                 switch (item.getItemId()){
+
                     case R.id.btn_nav_alerta_rapida:
                         fragment = new BotonPanico();
+
                         break;
+
                     case R.id.btn_nav_alerta_especifica:
                         fragment = new TipoAlerta();
+
                         break;
+
                     case R.id.btn_nav_mi_perfil:
                         fragment = new Perfil();
+
                         break;
+
                     case R.id.btn_nav_notification:
                         fragment = new Notificaciones(getIntent().getExtras().getInt("id_usuario"));
+
                         break;
 
                     case R.id.btn_nav_usuariosconfianza:
                         fragment = new UsuarioConfianza();
+
                         break;
 
                 }
@@ -100,21 +115,25 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
 
+                AlertasPendientes alertasPendientes = new AlertasPendientes();
 
                 switch (item.getItemId()){
                     case R.id.btn_nav_alerta_rapida_iz:
                         fragment = new BotonPanico();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
+
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.btn_nav_alerta_especifica_iz:
                         fragment = new TipoAlerta();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_especifica);
+
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.btn_nav_mi_perfil_iz:
                         fragment = new Perfil();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_mi_perfil);
+
                         drawerLayout.closeDrawers();
                         break;
 
@@ -122,6 +141,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                         fragment = new Notificaciones(getIntent().getExtras().getInt("id_usuario"));
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_notification);
                         drawerLayout.closeDrawers();
+
                         break;
 
                    /* case R.id.btn_nav_usuarios_iz:
@@ -133,11 +153,13 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                     case R.id.btn_contactos_emergencia_iz:
                         Intent intent= new Intent (Contenedor.this, ContactosEmergenciaActivity.class);
                         startActivity(intent);
+
                         break;
 
                     case R.id.btn_acercade:
                         Intent intent1 = new Intent(Contenedor.this,Acercade.class);
                         startActivity(intent1);
+
                         break;
 
 
@@ -161,7 +183,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                 return cargarFragmento(fragment);
             }
         });
-        //startService(new Intent(getApplicationContext(), BackgroundService.class));//Iniciamos servicio
+
 
 
     }

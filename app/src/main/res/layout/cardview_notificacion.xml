@@ -77,14 +77,6 @@
                 android:layout_marginRight="19dp"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnNotificacion"
-                    android:layout_width="60dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/boton_redondo_celeste"
-                    android:text="Ver"
-                    android:textSize="10sp" />
 
             </LinearLayout>
 

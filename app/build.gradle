@@ -81,5 +81,10 @@ dependencies {
     // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:24.1.1'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:24.1.1'
+
 }
 

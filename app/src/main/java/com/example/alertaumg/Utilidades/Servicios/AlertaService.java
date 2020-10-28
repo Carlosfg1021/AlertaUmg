@@ -37,4 +37,11 @@ public interface AlertaService {
             @Field("id_usuario") int id
     )throws  Exception;
 
+    @POST("marcar/vista/alerta")
+    @FormUrlEncoded
+    Call<RespuestaAPI<Alerta>>marcarAlertaVista(
+            @Field("id_alerta") int id_alerta,
+            @Field("id_usuario") int id_usuario
+    )throws Exception;
+
 }
