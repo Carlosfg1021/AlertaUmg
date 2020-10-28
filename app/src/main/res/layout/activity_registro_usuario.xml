@@ -102,6 +102,7 @@
                 android:layout_marginTop="3dp"
                 android:fontFamily="sans-serif"
                 android:hint="****"
+                android:inputType="textPassword"
                 android:textColor="#000000"
                 android:textSize="18dp" />
 
@@ -127,6 +128,7 @@
                 android:layout_marginTop="3dp"
                 android:fontFamily="sans-serif"
                 android:hint="****"
+                android:inputType="textPassword"
                 android:textColor="#000000"
                 android:textSize="18dp" />
 

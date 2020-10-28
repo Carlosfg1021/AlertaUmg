@@ -6,10 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".DetalleAlerta">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_contactos_emergencia" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        android:paddingHorizontal="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="15dp"
+            android:background="@color/colorPrimary"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                android:text="   Detalles de Alerta"
+                android:textColor="#000000"
+                android:gravity="center_vertical"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+       android:layout_marginTop="57dp"
         >
 
         <LinearLayout
@@ -51,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:textSize="25sp"
                     android:text="Tipo de alerta"
                     android:textColor="@android:color/holo_blue_dark"
                     ></TextView>
@@ -60,10 +103,10 @@
                     android:id="@+id/lblTipoAlerta"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    android:textSize="20sp"
                     android:text="lblTipoAlerta"
                     android:textColor="@android:color/black"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="45dp"
                     >
 
                 </TextView>
@@ -82,7 +125,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:textSize="25sp"
                     android:text="Usuario emisor"
                     android:textColor="@android:color/holo_blue_dark"
                     ></TextView>
@@ -91,10 +134,10 @@
                     android:id="@+id/lblEmisor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    android:textSize="20sp"
                     android:text="lblEmisor"
                     android:textColor="@android:color/black"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="45dp"
                     >
 
                 </TextView>
@@ -114,7 +157,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:textSize="25sp"
                     android:text="Descripción"
                     android:textColor="@android:color/holo_blue_dark"
                     ></TextView>
@@ -123,10 +166,10 @@
                     android:id="@+id/lblDescripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    android:textSize="20sp"
                     android:text="lblDescripcion"
                     android:textColor="@android:color/black"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="45dp"
                     >
 
                 </TextView>
@@ -145,7 +188,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:textSize="25sp"
                     android:text="Latitud GPS"
                     android:textColor="@android:color/holo_blue_dark"
                     ></TextView>
@@ -154,10 +197,10 @@
                     android:id="@+id/lblLatitud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    android:textSize="20sp"
                     android:text="lblLatitud"
                     android:textColor="@android:color/black"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="45dp"
                     >
 
                 </TextView>
@@ -176,7 +219,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:textSize="25sp"
                     android:text="Longitud GPS"
                     android:textColor="@android:color/holo_blue_dark"
                     ></TextView>
@@ -185,10 +228,10 @@
                     android:id="@+id/lblLongitud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    android:textSize="20sp"
                     android:text="lblLongitud"
                     android:textColor="@android:color/black"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="45dp"
                     >
 
                 </TextView>
@@ -197,20 +240,20 @@
 
             <Button
                 android:id="@+id/btnVerEnMapa"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="35dp"
-
+                android:layout_marginLeft="25dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/boton_redondo_celeste"
                 android:text="Ver en el mapa" />
 
             <Button
                 android:id="@+id/btnMarcarComoVista"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-
+                android:layout_marginLeft="25dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/boton_redondo_celeste"
                 android:text="Marcar como vista" />
