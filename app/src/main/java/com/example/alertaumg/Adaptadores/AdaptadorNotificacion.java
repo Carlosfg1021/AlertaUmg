@@ -21,6 +21,7 @@ public class AdaptadorNotificacion extends RecyclerView.Adapter<AdaptadorNotific
     ArrayList<NotificacionU> model;
     private View.OnClickListener listener;
 
+
     public AdaptadorNotificacion(Context context,ArrayList<NotificacionU> model){
 
         this.inflater = LayoutInflater.from(context);

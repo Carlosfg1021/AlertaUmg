@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleAlerta">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="83dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:text="DETALLE DE ALERTA"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    ></TextView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:text="Tipo de alerta"
+                    android:textColor="@android:color/holo_blue_dark"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/lblTipoAlerta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="lblTipoAlerta"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="35dp"
+                    >
+
+                </TextView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:text="Usuario emisor"
+                    android:textColor="@android:color/holo_blue_dark"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/lblEmisor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="lblEmisor"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="35dp"
+                    >
+
+                </TextView>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:text="Descripción"
+                    android:textColor="@android:color/holo_blue_dark"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/lblDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="lblDescripcion"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="35dp"
+                    >
+
+                </TextView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:text="Latitud GPS"
+                    android:textColor="@android:color/holo_blue_dark"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/lblLatitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="lblLatitud"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="35dp"
+                    >
+
+                </TextView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:text="Longitud GPS"
+                    android:textColor="@android:color/holo_blue_dark"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/lblLongitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="lblLongitud"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="35dp"
+                    >
+
+                </TextView>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btnVerEnMapa"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="35dp"
+
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/boton_redondo_celeste"
+                android:text="Ver en el mapa" />
+
+            <Button
+                android:id="@+id/btnMarcarComoVista"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/boton_redondo_celeste"
+                android:text="Marcar como vista" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

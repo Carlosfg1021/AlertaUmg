@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Acercade"></activity>
+        <activity android:name=".DetalleAlerta"></activity>
+        <activity android:name=".Acercade" />
         <activity
             android:name=".SeguirUsuario"
             android:screenOrientation="portrait" />
@@ -57,6 +58,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".Inicio.BackgroundService" />
     </application>
 
 </manifest>

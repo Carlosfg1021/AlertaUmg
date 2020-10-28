@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.alertaumg.Inicio.BackgroundService;
 import com.example.alertaumg.Inicio.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -160,6 +161,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                 return cargarFragmento(fragment);
             }
         });
+        //startService(new Intent(getApplicationContext(), BackgroundService.class));//Iniciamos servicio
+
 
     }
 

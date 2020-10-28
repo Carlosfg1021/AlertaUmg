@@ -76,7 +76,9 @@ public class Notificaciones extends Fragment {
                                listanotificacion.clear();//Limpiamos antes de volver a listar
 
                                for(int i=0; i<alerta.size();i++){
-                                   listanotificacion.add(new NotificacionU(alerta.get(i).getNombre_usuario(),alerta.get(i).getNombre_tipo_alerta()));
+                                   Alerta alertBody = alerta.get(i);
+
+                                   listanotificacion.add(new NotificacionU(alerta.get(i).getNombre_usuario(),alerta.get(i).getNombre_tipo_alerta(),alertBody));
 
                                }
 
@@ -116,6 +118,30 @@ public class Notificaciones extends Fragment {
 
         recyclerViewNotificacion.setLayoutManager(new LinearLayoutManager(getContext()));
         adaptadorNotificacion = new AdaptadorNotificacion(getContext(),listanotificacion);
+
+        //-------------------eventos-----------------
+
+        adaptadorNotificacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(),"Seleccionado: "+listanotificacion.get(recyclerViewNotificacion.getChildAdapterPosition(view)).getNombre(),Toast.LENGTH_SHORT).show();
+
+                //-----------AQUÍ MANDAMOS A LLAMAR AL ACTIVITY QUE NOS MOSTRARÁ LOS DETALLES DE LA TIENDA
+                Intent intent = new Intent(getActivity().getApplicationContext(),DetalleAlerta.class);
+
+                intent.putExtra("id_alerta",listanotificacion.get(recyclerViewNotificacion.getChildAdapterPosition(view)).getAlertaClass().getId());
+                intent.putExtra("tipo_alerta",listanotificacion.get(recyclerViewNotificacion.getChildAdapterPosition(view)).getAlertaClass().getNombre_tipo_alerta());
+                intent.putExtra("emisor",listanotificacion.get(recyclerViewNotificacion.getChildAdapterPosition(view)).getAlertaClass().getNombre_usuario());
+                intent.putExtra("descripcion",listanotificacion.get(recyclerViewNotificacion.getChildAdapterPosition(view)).getAlertaClass().getDescripcion());
+                intent.putExtra("latitud",listanotificacion.get(recyclerViewNotificacion.getChildAdapterPosition(view)).getAlertaClass().getLatitud());
+                intent.putExtra("longitud",listanotificacion.get(recyclerViewNotificacion.getChildAdapterPosition(view)).getAlertaClass().getLongitud());
+
+                startActivity(intent);
+
+            }
+        });
+
+
         recyclerViewNotificacion.setAdapter(adaptadorNotificacion);
 
     }
