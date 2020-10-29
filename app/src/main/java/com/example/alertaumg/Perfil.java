@@ -144,7 +144,7 @@ public class Perfil extends Fragment {
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity().getApplicationContext(),"Presionado",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity().getApplicationContext(),"Presionado",Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity().getApplicationContext(),EditUser.class);
 
@@ -156,7 +156,7 @@ public class Perfil extends Fragment {
                 intent.putExtra("direccion",lblDireccion.getText().toString());
                 intent.putExtra("correo",getActivity().getIntent().getExtras().getString("correo"));
                 intent.putExtra("departamento", lblDepartamento.getText().toString());
-                intent.putExtra("municipio", lblMunicipio.getText());
+                intent.putExtra("municipio", lblMunicipio.getText().toString());
 
 
                 startActivity(intent);

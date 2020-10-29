@@ -58,7 +58,8 @@ public class EditUser extends AppCompatActivity {
         correo = getIntent().getExtras().getString("correo");
         lblPersonaNombre.setText(txtNombre.getText().toString()+" "+txtApellido.getText().toString());
         String urlFotoEditar = getIntent().getExtras().getString(("fotografia"));
-
+        llenarDepartamento(getIntent().getExtras().getString("departamento"));
+        llenarMunicipio(getIntent().getExtras().getString("municipio"));
         //Toast.makeText(this, urlFotoMenu, Toast.LENGTH_SHORT).show();
 
         try{
@@ -85,6 +86,14 @@ public class EditUser extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) { //añadimos municipios dependiendo del departamento seleccionado
                 llenarMunicipios();
+                return false;
+            }
+        });
+
+        spinerDepartamento.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                llenarDatos();
                 return false;
             }
         });
@@ -396,5 +405,20 @@ public class EditUser extends AppCompatActivity {
         if (spinerDepartamento.getSelectedItem().toString().equals("Zacapa")) {
             spinerMunicipio.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, munZacapa));
         }
+    }
+
+
+    private void llenarDepartamento(String nombre){
+        arraySpinerDepartamento = new String[]{nombre};
+
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinerDepartamento);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinerDepartamento.setAdapter(adapter);
+    }
+
+    private void llenarMunicipio(String nombre){
+        arraySpinerMunicipio = new String[]{nombre};
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arraySpinerMunicipio);
+        spinerMunicipio.setAdapter(adapter);
     }
 }

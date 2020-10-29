@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.alertaumg.Adaptadores.AdaptadorNotificacion;
@@ -56,6 +57,9 @@ public class Notificaciones extends Fragment {
     int verificador=1;
     RelativeLayout layoutNotificacion;
     MenuItem iconoCampanita;
+    public BottomNavigationView menuNavegacion;
+    private int estadoNotificacion=0;
+
     private ArrayList<String>listaContadora = new ArrayList<>();
     public Notificaciones(int id_u){
         this.mi_id_publico = id_u;
@@ -66,15 +70,32 @@ public class Notificaciones extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
 
         View view  = inflater.inflate(R.layout.fragment_notificaciones,container,false);
-
+        View view2 = inflater.inflate(R.layout.activity_contenedor,container,false);
 
         layoutNotificacion = view.findViewById(R.id.layoutNotificacion);
+        menuNavegacion = (BottomNavigationView) view2.findViewById(R.id.menu_navegacion);
+        iconoCampanita = menuNavegacion.getMenu().getItem(3);
+
         recyclerViewNotificacion = view.findViewById(R.id.recycleview_noti);
         listanotificacion = new ArrayList<>();
         //Toast.makeText(getContext(),getActivity().getIntent().getExtras().getInt("id_usuario"),Toast.LENGTH_SHORT).show();
         //cargarlista();
        // mostraData();
       //Toast.makeText(view.getContext(),getActivity().getIntent().getExtras().getInt("id_usuario"),Toast.LENGTH_SHORT).show();
+
+        consultaAlertas(view.getContext());
+        return view;
+
+    }
+/*
+    public void cargarlista(){
+
+        listanotificacion.add(new NotificacionU("Carlos Franco","Violencia de Genero"));
+    }
+*/
+
+   public int consultaAlertas(Context view){
+
        try{
            Gson gson = new GsonBuilder().setLenient().create();
            APIUtils.getAlertaService().obtenerAlertasNoVistas(mi_id_publico).enqueue(new Callback<RespuestaAPI<List<Alerta>>>() {
@@ -97,21 +118,23 @@ public class Notificaciones extends Fragment {
                                    listanotificacion.add(new NotificacionU(alerta.get(i).getNombre_usuario(),alerta.get(i).getNombre_tipo_alerta(),alertBody));
 
                                }
-                               Toast.makeText(view.getContext(),"Alertas encontradas",Toast.LENGTH_SHORT).show();
+                               Toast.makeText(view,"Alertas encontradas",Toast.LENGTH_SHORT).show();
                                layoutNotificacion.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.rojo));
-
+                               iconoCampanita.setIcon(R.drawable.ic_notificacion);
+                               estadoNotificacion=1;
                                mostraData();
                            }else{
-                               Toast.makeText(view.getContext(), "Alertas encontradas", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(view, "Alertas encontradas", Toast.LENGTH_SHORT).show();
                            }
                        }else if ( respuesta.getCodigo() == 0 ){
                            verificador=0;
                            layoutNotificacion.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.fondo_blanco));
-
-                           Toast.makeText(view.getContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+                           iconoCampanita.setIcon(R.drawable.ic_notificacion_pendiente);
+                           estadoNotificacion=0;
+                           Toast.makeText(view, respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
                        }
                    }else{
-                       Toast.makeText(view.getContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(view, "Error en el servidor.", Toast.LENGTH_SHORT).show();
                    }
                }
 
@@ -122,20 +145,11 @@ public class Notificaciones extends Fragment {
            });
 
        }catch (Exception e){
-           Toast.makeText(view.getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+           Toast.makeText(view,e.getMessage(),Toast.LENGTH_SHORT).show();
        }
 
-        return view;
-
-    }
-/*
-    public void cargarlista(){
-
-        listanotificacion.add(new NotificacionU("Carlos Franco","Violencia de Genero"));
-    }
-*/
-
-
+       return verificador;
+   }
 
     public void mostraData(){
 

@@ -57,7 +57,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
     int id_global_usuario;
 
     private int verificador=1;
-
+    MenuItem iconoCampanita;
 
 
     @Override
@@ -67,8 +67,10 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
 
         id_global_usuario = getIntent().getExtras().getInt("id_usuario");
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
-        menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
+        menuNavegacion.setSelectedItemId(R.id.btn_nav_notification);
 
+
+        iconoCampanita = menuNavegacion.getMenu().getItem(3);
         //menuNavegacion.setOnNavigationItemSelectedListener(this);
 
         setToolBar();
@@ -336,7 +338,15 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
 
     private boolean cargarFragmentInicio(){
         Fragment fragmento=null;
-        fragmento = new Notificaciones(getIntent().getExtras().getInt("id_usuario"));
+        Notificaciones not = new Notificaciones(getIntent().getExtras().getInt("id_usuario"));
+
+        fragmento = not;
+        if(not.consultaAlertas(Contenedor.this)==1){
+            iconoCampanita.setIcon(R.drawable.ic_notificacion_pendiente);
+        }else{
+            iconoCampanita.setIcon(R.drawable.ic_notificacion);
+        }
+        //fragmento = new Notificaciones(getIntent().getExtras().getInt("id_usuario"));
 
         return cargarFragmento(fragmento);
     }

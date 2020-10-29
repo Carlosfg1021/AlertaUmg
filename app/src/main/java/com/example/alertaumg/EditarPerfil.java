@@ -48,8 +48,8 @@ public class EditarPerfil extends AppCompatActivity {
         txtTelefono.setText(getIntent().getExtras().getString("telefono"));
         correo = getIntent().getExtras().getString("correo");
 
-        //llenarDepartamento(getIntent().getExtras().getString("departamento"));
-        //llenarMunicipio(getIntent().getExtras().getString("municipio"));
+        llenarDepartamento("Prueba");
+        llenarMunicipio("Prueba");
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
