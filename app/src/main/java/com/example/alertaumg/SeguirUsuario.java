@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.alertaumg.Modelos.RespuestaAPI;
 import com.example.alertaumg.Utilidades.APIUtils;
 import com.google.gson.Gson;
@@ -22,6 +24,7 @@ public class SeguirUsuario extends AppCompatActivity {
 
     TextView lblNombre, lblApellido, lblDepartamento,lblMunicipio,lblDireccion, lblTelefono, lblNombreEncabezado;
     private Button btnSeguir;
+    ImageView imgPerfilSeguir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,21 @@ public class SeguirUsuario extends AppCompatActivity {
         lblDireccion = findViewById(R.id.lblDireccion);
         lblTelefono = findViewById(R.id.lblTelefono);
         lblNombreEncabezado = findViewById(R.id.personaNombreSeguir);
+        imgPerfilSeguir = findViewById(R.id.EditarImgPerfil);
+
+
+        String urlFotoEditar = getIntent().getExtras().getString(("fotografia"));
+
+        //Toast.makeText(this, urlFotoMenu, Toast.LENGTH_SHORT).show();
+
+        try{
+            Glide.with(getApplicationContext())
+                    .load(urlFotoEditar)
+                    .into((ImageView) imgPerfilSeguir);
+            //Comentario
+        }catch (Exception e){
+
+        }
 
         int id_confianza =getIntent().getExtras().getInt("id_confianza");
         int mi_id = getIntent().getExtras().getInt("id_usuario");

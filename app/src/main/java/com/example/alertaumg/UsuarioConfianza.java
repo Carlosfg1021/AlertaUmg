@@ -115,7 +115,7 @@ public class UsuarioConfianza extends Fragment {
                 intent.putExtra("apellido_confianza",listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getApellido());
                 intent.putExtra("telefono_confianza",listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getNumero_telefono());
                 intent.putExtra("direccion_confianza",listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getDireccion());
-
+                intent.putExtra("fotografia",listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getFotografia());
                 startActivity(intent);
             }
         });
