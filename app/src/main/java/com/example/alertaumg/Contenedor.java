@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.alertaumg.Entidades.NotificacionU;
 import com.example.alertaumg.Funcionalidad.AlertasPendientes;
 import com.example.alertaumg.Inicio.BackgroundService;
 import com.example.alertaumg.Inicio.Login;
@@ -35,6 +36,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -50,23 +52,18 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
     private androidx.drawerlayout.widget.DrawerLayout drawerLayout;
     TextView emailMenu, nombreUsuarioMenu;
     ImageView imagenlateral;
-    int contador=0;
+    private int contador=0;
     MenuItem menuItemARapida, menuItemAEspecifica, menuItemPerfil, menuItemNotificacion, menuItemUsConf;
-
+    int id_global_usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contenedor);
 
-        AlertasPendientes alertasPendientes = new AlertasPendientes();
-
-        Toast.makeText(getApplicationContext(),"No alertas no vistas: "+alertasPendientes.obtenerPendientes(getIntent().getExtras().getInt("id_usuario"),getApplicationContext()),Toast.LENGTH_LONG).show();
-
+        id_global_usuario = getIntent().getExtras().getInt("id_usuario");
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
-
-
 
         //menuNavegacion.setOnNavigationItemSelectedListener(this);
 
@@ -284,7 +281,6 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

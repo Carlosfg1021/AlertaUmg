@@ -37,6 +37,8 @@ import retrofit2.Response;
 
 public class Notificaciones extends Fragment {
 
+
+
     AdaptadorNotificacion adaptadorNotificacion;
     RecyclerView recyclerViewNotificacion;
     ArrayList<NotificacionU> listanotificacion;
@@ -44,7 +46,7 @@ public class Notificaciones extends Fragment {
     TipoAlerta alertaCardView;
     Usuario usuarioCardView;
     Indice indiceUsuario;
-
+    private ArrayList<String>listaContadora = new ArrayList<>();
     public Notificaciones(int id_u){
         this.mi_id_publico = id_u;
     }
@@ -75,6 +77,7 @@ public class Notificaciones extends Fragment {
 
                                listanotificacion.clear();//Limpiamos antes de volver a listar
 
+
                                for(int i=0; i<alerta.size();i++){
                                    Alerta alertBody = alerta.get(i);
 
@@ -103,7 +106,6 @@ public class Notificaciones extends Fragment {
        }catch (Exception e){
            Toast.makeText(view.getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
        }
-
 
         return view;
 
@@ -144,9 +146,8 @@ public class Notificaciones extends Fragment {
 
         recyclerViewNotificacion.setAdapter(adaptadorNotificacion);
 
+
     }
-
-
 
 
 }

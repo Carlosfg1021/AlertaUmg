@@ -61,7 +61,7 @@
         android:src="@drawable/imagen_perfil" />
 
     <TextView
-        android:id="@+id/personaNombre"
+        android:id="@+id/personaNombreSeguir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre_apellido"

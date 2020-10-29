@@ -20,7 +20,7 @@ import retrofit2.Response;
 
 public class SeguirUsuario extends AppCompatActivity {
 
-    TextView lblNombre, lblApellido, lblDepartamento,lblMunicipio,lblDireccion, lblTelefono;
+    TextView lblNombre, lblApellido, lblDepartamento,lblMunicipio,lblDireccion, lblTelefono, lblNombreEncabezado;
     private Button btnSeguir;
 
     @Override
@@ -34,11 +34,13 @@ public class SeguirUsuario extends AppCompatActivity {
         lblMunicipio = findViewById(R.id.lblMunicipio);
         lblDireccion = findViewById(R.id.lblDireccion);
         lblTelefono = findViewById(R.id.lblTelefono);
+        lblNombreEncabezado = findViewById(R.id.personaNombreSeguir);
 
         int id_confianza =getIntent().getExtras().getInt("id_confianza");
         int mi_id = getIntent().getExtras().getInt("id_usuario");
         lblNombre.setText(getIntent().getExtras().getString("nombre_confianza"));
         lblApellido.setText(getIntent().getExtras().getString("apellido_confianza"));
+        lblNombreEncabezado.setText(lblNombre.getText().toString()+" "+lblApellido.getText().toString());
         lblTelefono.setText(getIntent().getExtras().getString("telefono_confianza"));
         String dir = getIntent().getExtras().getString("direccion_confianza");
         String departamento="";
