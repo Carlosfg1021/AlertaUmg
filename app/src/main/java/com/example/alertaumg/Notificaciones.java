@@ -1,18 +1,23 @@
 package com.example.alertaumg;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.alertaumg.Adaptadores.AdaptadorNotificacion;
@@ -25,6 +30,7 @@ import com.example.alertaumg.Modelos.RespuestaAPI;
 import com.example.alertaumg.Modelos.TipoAlerta;
 import com.example.alertaumg.Modelos.Usuario;
 import com.example.alertaumg.Utilidades.APIUtils;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -48,6 +54,8 @@ public class Notificaciones extends Fragment {
     Usuario usuarioCardView;
     Indice indiceUsuario;
     int verificador=1;
+    RelativeLayout layoutNotificacion;
+    MenuItem iconoCampanita;
     private ArrayList<String>listaContadora = new ArrayList<>();
     public Notificaciones(int id_u){
         this.mi_id_publico = id_u;
@@ -59,6 +67,8 @@ public class Notificaciones extends Fragment {
 
         View view  = inflater.inflate(R.layout.fragment_notificaciones,container,false);
 
+
+        layoutNotificacion = view.findViewById(R.id.layoutNotificacion);
         recyclerViewNotificacion = view.findViewById(R.id.recycleview_noti);
         listanotificacion = new ArrayList<>();
         //Toast.makeText(getContext(),getActivity().getIntent().getExtras().getInt("id_usuario"),Toast.LENGTH_SHORT).show();
@@ -87,6 +97,8 @@ public class Notificaciones extends Fragment {
                                    listanotificacion.add(new NotificacionU(alerta.get(i).getNombre_usuario(),alerta.get(i).getNombre_tipo_alerta(),alertBody));
 
                                }
+                               Toast.makeText(view.getContext(),"Alertas encontradas",Toast.LENGTH_SHORT).show();
+                               layoutNotificacion.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.rojo));
 
                                mostraData();
                            }else{
@@ -94,6 +106,8 @@ public class Notificaciones extends Fragment {
                            }
                        }else if ( respuesta.getCodigo() == 0 ){
                            verificador=0;
+                           layoutNotificacion.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.fondo_blanco));
+
                            Toast.makeText(view.getContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
                        }
                    }else{

@@ -47,7 +47,7 @@ import static com.example.alertaumg.Perfil.urlFoto;
 
 public class Contenedor extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener{
 
-    BottomNavigationView menuNavegacion;
+    public BottomNavigationView menuNavegacion;
     com.google.android.material.navigation.NavigationView menuLateral;
     private androidx.drawerlayout.widget.DrawerLayout drawerLayout;
     TextView emailMenu, nombreUsuarioMenu;
@@ -56,7 +56,9 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
     MenuItem menuItemARapida, menuItemAEspecifica, menuItemPerfil, menuItemNotificacion, menuItemUsConf;
     int id_global_usuario;
 
-    int verificador=1;
+    private int verificador=1;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,13 +114,14 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                 return cargarFragmento(fragment);
             }
         });
-
+/*
         if(comprobarAlertas()==1){
             Toast.makeText(getApplicationContext(),"Hay alertas",Toast.LENGTH_SHORT).show();
         }else if(comprobarAlertas()==0){
             Toast.makeText(getApplicationContext(),"No hay alertas",Toast.LENGTH_SHORT).show();
         }
-
+*/
+        cargarFragmentInicio();//Inicializamos las alertas
 
         menuLateral = findViewById(R.id.navigationId);//Obtenemos el objeto del xml
 
@@ -152,7 +155,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
 
-                AlertasPendientes alertasPendientes = new AlertasPendientes();
+                //AlertasPendientes alertasPendientes = new AlertasPendientes();
 
                 switch (item.getItemId()){
                     case R.id.btn_nav_alerta_rapida_iz:
@@ -302,16 +305,17 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                         RespuestaAPI<List<Alerta>> respuesta = response.body();
 
                         if ( respuesta.getCodigo() == 1 ){
-                            verificador=1;
-                            List<Alerta> alerta = respuesta.getData();
-                            if (alerta != null ){
-
-                            }else{
-                                Toast.makeText(getApplicationContext(), "Alertas encontradas", Toast.LENGTH_SHORT).show();
+                            List<Alerta> alr = respuesta.getData();
+                            for(int i=0;i<alr.size();i++){
+                                if(alr.get(i).getId_usuario()>0) {
+                                    verificador=1;
+                                }
                             }
+
                         }else if ( respuesta.getCodigo() == 0 ){
                             verificador=0;
-                            Toast.makeText(getApplicationContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Contenedor.this, "Error en el servidor.", Toast.LENGTH_SHORT).show();
+
                         }
                     }else{
                         Toast.makeText(getApplicationContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
@@ -328,5 +332,16 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         }
         return verificador;
+    }
+
+    private boolean cargarFragmentInicio(){
+        Fragment fragmento=null;
+        fragmento = new Notificaciones(getIntent().getExtras().getInt("id_usuario"));
+
+        return cargarFragmento(fragmento);
+    }
+
+    public void cambiarIconoNotificacion(){
+
     }
 }
