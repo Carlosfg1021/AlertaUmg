@@ -343,10 +343,12 @@ public class RegistroUsuario extends AppCompatActivity {
                                 if ( objeto != null ){
                                     Toast.makeText(RegistroUsuario.this, respuesta.toString(), Toast.LENGTH_SHORT).show();
 
-                                    Intent intent = new Intent(RegistroUsuario.this, Contenedor.class);
+                                    Intent intent = new Intent(RegistroUsuario.this, Login.class);
                                     startActivity(intent);
                                 }else{
                                     Toast.makeText(getApplicationContext(), "¡Registro exitoso!", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(RegistroUsuario.this, Login.class);
+                                    startActivity(intent);
                                 }
                             }else if ( respuesta.getCodigo() == 0 ){
 

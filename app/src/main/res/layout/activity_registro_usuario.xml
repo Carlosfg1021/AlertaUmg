@@ -78,7 +78,9 @@
                 android:fontFamily="sans-serif"
                 android:hint="correo@gmail.com"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                android:enabled="false"
+                />
 
             <View
                 android:layout_width="match_parent"
@@ -165,7 +167,9 @@
                 android:fontFamily="sans-serif"
                 android:hint="Nombre"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                android:enabled="false"
+                />
 
             <View
                 android:layout_width="match_parent"
@@ -189,7 +193,9 @@
                 android:fontFamily="sans-serif"
                 android:hint="Apellido"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                android:enabled="false"
+                />
 
             <View
                 android:layout_width="match_parent"

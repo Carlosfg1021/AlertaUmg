@@ -94,6 +94,7 @@ public class EditUser extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 llenarDatos();
+                llenarMunicipios();
                 return false;
             }
         });
