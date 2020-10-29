@@ -3,7 +3,6 @@ package com.example.alertaumg;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -27,7 +26,7 @@ public class Perfil extends Fragment {
     TextView lblNombre, lblApellido, lblDepartamento, lblMunicipio, lblDireccion, lblpersonaNombre, lblTelefono;
     ImageView personaImagenPerfil;
     Button btnEditar;
-    public static String urlFotoGeneral;
+    public static String urlFoto;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -86,16 +85,16 @@ public class Perfil extends Fragment {
         lblDireccion = vista.findViewById(R.id.lblDireccion);
         lblTelefono = vista.findViewById(R.id.lblTelefono);
 
-        personaImagenPerfil = vista.findViewById(R.id.personaImagenPerfil);
+        personaImagenPerfil = vista.findViewById(R.id.EditarImgPerfil);
 //lblApellido;
         lblNombre.setText(getActivity().getIntent().getExtras().getString("nombre"));
         lblApellido.setText(getActivity().getIntent().getExtras().getString("apellido"));
         lblTelefono.setText(getActivity().getIntent().getExtras().getString("telefono"));
 
         lblpersonaNombre.setText(lblNombre.getText()+" "+lblApellido.getText());
-        String urlFoto = getActivity().getIntent().getExtras().getString(("fotografia"));
+        urlFoto = getActivity().getIntent().getExtras().getString(("fotografia"));
 
-        //Toast.makeText(getActivity().getApplicationContext(),urlFoto,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getActivity().getApplicationContext(),urlFoto,Toast.LENGTH_SHORT).show();
 
         //cargar photo
         try{

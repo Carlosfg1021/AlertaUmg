@@ -18,6 +18,7 @@
             android:id="@+id/imagenmenu"
             android:layout_width="105dp"
             android:layout_height="90dp"
+            android:src="@drawable/imagen_perfil" />
             />
 
         <TextView

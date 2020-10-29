@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/personaImagenPerfil"
+        android:id="@+id/EditarImgPerfil"
         android:layout_width="122dp"
         android:layout_height="118dp"
         android:layout_alignParentTop="true"

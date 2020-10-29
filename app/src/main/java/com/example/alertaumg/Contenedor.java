@@ -30,6 +30,8 @@ import com.example.alertaumg.Inicio.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import static com.example.alertaumg.Perfil.urlFoto;
+
 public class Contenedor extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener{
 
     BottomNavigationView menuNavegacion;
@@ -48,7 +50,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
 
-        imagenlateral = (ImageView) findViewById(R.id.imagenmenu);
+
 
         //menuNavegacion.setOnNavigationItemSelectedListener(this);
 
@@ -101,10 +103,23 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         View headerView = menuLateral.getHeaderView(0);
         nombreUsuarioMenu = (TextView) headerView.findViewById(R.id.menuNombreUsuario);
         emailMenu = (TextView) headerView.findViewById(R.id.menuCorreoUsuario);
+        imagenlateral = (ImageView) headerView.findViewById(R.id.imagenmenu);
 
 
         nombreUsuarioMenu.setText(getIntent().getStringExtra("nombre")+" "+ getIntent().getStringExtra("apellido"));
         emailMenu.setText(getIntent().getStringExtra("correo"));
+        String urlFotoMenu = getIntent().getExtras().getString(("fotografia"));
+
+        //Toast.makeText(this, urlFotoMenu, Toast.LENGTH_SHORT).show();
+
+        //imagen lateral
+        try{
+            Glide.with(getApplicationContext())
+                    .load(urlFotoMenu)
+                    .into((ImageView) imagenlateral);
+        }catch (Exception e){
+
+        }
 
 
 

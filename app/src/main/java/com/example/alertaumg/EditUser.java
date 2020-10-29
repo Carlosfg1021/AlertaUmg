@@ -4,20 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.alertaumg.Funcionalidad.RegistroUsuario;
+import com.bumptech.glide.Glide;
 import com.example.alertaumg.Modelos.RespuestaAPI;
 import com.example.alertaumg.Utilidades.APIUtils;
 import com.google.gson.Gson;
@@ -27,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import android.os.Bundle;
+import static com.example.alertaumg.Perfil.urlFoto;
 
 public class EditUser extends AppCompatActivity {
 
@@ -43,6 +40,7 @@ public class EditUser extends AppCompatActivity {
     String[] munGuatemala, munElProgreso, munZacapa, munJalapa, munJutiapa, munAltaVerapaz, munBajaVerapaz,
             munQuetzaltenango, munSolola, munIzabal, munPeten, munQuihe, munSanMarcos, munSantaRosa, munTotonicapan,
             munChimaltenango, munChiquimula, munEscuintla, munHuehuetenango, munRetalhuleu, munSacatepequez, munSuchitepequez;
+    private ImageView imagenPerfil;
 
 
     @Override
@@ -59,6 +57,17 @@ public class EditUser extends AppCompatActivity {
         txtTelefono.setText(getIntent().getExtras().getString("telefono"));
         correo = getIntent().getExtras().getString("correo");
         lblPersonaNombre.setText(txtNombre.getText().toString()+" "+txtApellido.getText().toString());
+        String urlFotoEditar = getIntent().getExtras().getString(("fotografia"));
+
+        //Toast.makeText(this, urlFotoMenu, Toast.LENGTH_SHORT).show();
+
+        try{
+            Glide.with(getApplicationContext())
+                    .load(urlFoto)
+                    .into((ImageView) imagenPerfil);
+        }catch (Exception e){
+
+        }
         //Toast.makeText(getApplicationContext(),correo+" "+id_usuario,Toast.LENGTH_SHORT).show();
 
         //llenarDepartamento(getIntent().getExtras().getString("departamento"));
@@ -93,6 +102,7 @@ public class EditUser extends AppCompatActivity {
         spinerMunicipio = findViewById(R.id.sprMunicipio);
 
         btnGuardar = findViewById(R.id.btnGuardar);
+        imagenPerfil = findViewById(R.id.EditarImgPerfil);
     }
 
     private void editar(){
