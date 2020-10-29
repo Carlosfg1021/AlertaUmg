@@ -186,7 +186,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
 
                         break;
 
-                   /* case R.id.btn_nav_usuarios_iz:
+                    /*case R.id.btn_nav_usurios_iz:
                         fragment = new UsuarioConfianza();
                         menuNavegacion.setSelectedItemId(R.id.btn_nav_usuariosconfianza);
                         drawerLayout.closeDrawers();
