@@ -34,6 +34,7 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
     ArrayList<Usuarios> model;
     private View.OnClickListener listener;
 
+
     public AdaptadorUsuarios(Context context, ArrayList<Usuarios> model ){
 
         this.inflater = LayoutInflater.from(context);
@@ -91,8 +92,9 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
 
             nombre = itemView.findViewById(R.id.nombre_carview);
             direccion = itemView.findViewById(R.id.direccion_carview);
-            btnPerfil = itemView.findViewById(R.id.btnPerfil);
-            btnPerfil.setOnClickListener(new View.OnClickListener() {
+            //btnPerfil = itemView.findViewById(R.id.btnPerfil);
+
+        /*    btnPerfil.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
@@ -108,6 +110,7 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
                     itemView.getContext().startActivity(intent);
                 }
             });
+          */
         /*
 
             btnSeguir.setOnClickListener(new View.OnClickListener() {

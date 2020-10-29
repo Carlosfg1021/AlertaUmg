@@ -78,15 +78,6 @@
                 android:orientation="horizontal">
 
 
-                <Button
-                    android:id="@+id/btnPerfil"
-                    android:layout_width="60dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/boton_redondo_celeste"
-                    android:text="Perfil"
-                    android:textSize="10sp" />
-
 
             </LinearLayout>
 

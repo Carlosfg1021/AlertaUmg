@@ -27,8 +27,19 @@ import com.bumptech.glide.Glide;
 import com.example.alertaumg.Funcionalidad.AlertasPendientes;
 import com.example.alertaumg.Inicio.BackgroundService;
 import com.example.alertaumg.Inicio.Login;
+import com.example.alertaumg.Modelos.Alerta;
+import com.example.alertaumg.Modelos.RespuestaAPI;
+import com.example.alertaumg.Utilidades.APIUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.example.alertaumg.Perfil.urlFoto;
 
@@ -39,7 +50,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
     private androidx.drawerlayout.widget.DrawerLayout drawerLayout;
     TextView emailMenu, nombreUsuarioMenu;
     ImageView imagenlateral;
-
+    int contador=0;
     MenuItem menuItemARapida, menuItemAEspecifica, menuItemPerfil, menuItemNotificacion, menuItemUsConf;
 
 
@@ -47,6 +58,11 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contenedor);
+
+        AlertasPendientes alertasPendientes = new AlertasPendientes();
+
+        Toast.makeText(getApplicationContext(),"No alertas no vistas: "+alertasPendientes.obtenerPendientes(getIntent().getExtras().getInt("id_usuario"),getApplicationContext()),Toast.LENGTH_LONG).show();
+
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
         menuNavegacion.setSelectedItemId(R.id.btn_nav_alerta_rapida);
 
@@ -198,7 +214,6 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                 return cargarFragmento(fragment);
             }
         });
-
 
 
     }

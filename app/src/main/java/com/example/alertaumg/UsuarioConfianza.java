@@ -103,6 +103,23 @@ public class UsuarioConfianza extends Fragment {
         recyclerViewUsuarios.setLayoutManager(new LinearLayoutManager(getContext()));
         adaptadorUsuarios = new AdaptadorUsuarios(getContext(),listausuario);
         adaptadorUsuarios.miId = my_user_id;
+
+        adaptadorUsuarios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), SeguirUsuario.class);
+
+                intent.putExtra("id_usuario",my_user_id);
+                intent.putExtra("id_confianza",listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getId());
+                intent.putExtra("nombre_confianza",listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getNombre()+" "+listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getApellido());
+                intent.putExtra("apellido_confianza",listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getApellido());
+                intent.putExtra("telefono_confianza",listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getNumero_telefono());
+                intent.putExtra("direccion_confianza",listausuario.get(recyclerViewUsuarios.getChildAdapterPosition(view)).getUsuario().getDireccion());
+
+                startActivity(intent);
+            }
+        });
+
         recyclerViewUsuarios.setAdapter(adaptadorUsuarios);
 
 

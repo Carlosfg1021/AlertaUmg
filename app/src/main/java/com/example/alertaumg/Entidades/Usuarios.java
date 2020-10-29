@@ -8,7 +8,7 @@ public class Usuarios {
     private String nombre;
     private String direccion;
     private Usuario usuario;
-
+    private Usuarios datosUsuarioSeleccionado;
 
     public Usuarios(){}
 
