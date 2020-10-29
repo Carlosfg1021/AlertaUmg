@@ -44,9 +44,11 @@ public int obtenerPendientes(int id_usuario, Context view) {
 
                         }else{
                             Toast.makeText(view, "Alertas encontradas", Toast.LENGTH_SHORT).show();
+                            setRes(alerta.size());
                         }
                     }else if ( respuesta.getCodigo() == 0 ){
                         Toast.makeText(view, respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+
                     }
                 }else{
                     Toast.makeText(view, "Error en el servidor.", Toast.LENGTH_SHORT).show();

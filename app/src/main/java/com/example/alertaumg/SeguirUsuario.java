@@ -5,16 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.alertaumg.Modelos.Alerta;
 import com.example.alertaumg.Modelos.RespuestaAPI;
+import com.example.alertaumg.Modelos.UsuarioConfianza;
 import com.example.alertaumg.Utilidades.APIUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,6 +29,10 @@ public class SeguirUsuario extends AppCompatActivity {
     TextView lblNombre, lblApellido, lblDepartamento,lblMunicipio,lblDireccion, lblTelefono, lblNombreEncabezado;
     private Button btnSeguir;
     ImageView imgPerfilSeguir;
+    int id_confianza;
+    int mi_id;
+    List<UsuarioConfianza> listaC;
+    private boolean resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +47,7 @@ public class SeguirUsuario extends AppCompatActivity {
         lblTelefono = findViewById(R.id.lblTelefono);
         lblNombreEncabezado = findViewById(R.id.personaNombreSeguir);
         imgPerfilSeguir = findViewById(R.id.EditarImgPerfil);
-
+        listaC = new ArrayList<>();
 
         String urlFotoEditar = getIntent().getExtras().getString(("fotografia"));
 
@@ -54,8 +62,8 @@ public class SeguirUsuario extends AppCompatActivity {
 
         }
 
-        int id_confianza =getIntent().getExtras().getInt("id_confianza");
-        int mi_id = getIntent().getExtras().getInt("id_usuario");
+        id_confianza =getIntent().getExtras().getInt("id_confianza");
+        mi_id = getIntent().getExtras().getInt("id_usuario");
         lblNombre.setText(getIntent().getExtras().getString("nombre_confianza"));
         lblApellido.setText(getIntent().getExtras().getString("apellido_confianza"));
         lblNombreEncabezado.setText(lblNombre.getText().toString()+" "+lblApellido.getText().toString());
@@ -95,6 +103,7 @@ public class SeguirUsuario extends AppCompatActivity {
         btnSeguir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 try{
                     Gson gson = new GsonBuilder().setLenient().create();
                     APIUtils.getUsuarioConfianzaService().registrarUsuarioConfianza(mi_id,id_confianza).enqueue(new Callback<RespuestaAPI<String>>() {
@@ -128,7 +137,51 @@ public class SeguirUsuario extends AppCompatActivity {
             }
         });
 
+        comprobarSeguido();
+
+    }
+
+    public void comprobarSeguido(){
+
+        try{
+            Gson gson = new GsonBuilder().setLenient().create();
+            APIUtils.getUsuarioConfianzaService().obtenerUsuariosConfianza(mi_id).enqueue(new Callback<RespuestaAPI<List<UsuarioConfianza>>>() {
+                @Override
+                public void onResponse(Call<RespuestaAPI<List<UsuarioConfianza>>> call, Response<RespuestaAPI<List<UsuarioConfianza>>> response) {
+                    if (response.isSuccessful()) {
+                        RespuestaAPI<List<UsuarioConfianza>> respuesta = response.body();
+
+                        if ( respuesta.getCodigo() == 1 ){
+                            List<UsuarioConfianza> usSeguir = respuesta.getData();
+                            for(int i=0; i<usSeguir.size();i++){
+                                if(usSeguir.get(i).getId()== id_confianza){
+                                    btnSeguir.setEnabled(false);
+                                    btnSeguir.setText("Seguido");
+                                }
+                            }
+
+
+                        }else if ( respuesta.getCodigo() == 0 ){
+                            Toast.makeText(SeguirUsuario.this, respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+                            btnSeguir.setEnabled(true);
+                            btnSeguir.setText("SEGUIR");
+                        }
+                    }else{
+                        Toast.makeText(SeguirUsuario.this, "Error en el servidor.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<RespuestaAPI<List<UsuarioConfianza>>> call, Throwable t) {
+
+                }
+            });
+        }catch (Exception e){
+
+        }
 
 
     }
+
+
 }

@@ -76,7 +76,7 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
-                AlertasPendientes alertasPendientes = new AlertasPendientes();
+
 
                 switch (item.getItemId()){
 
