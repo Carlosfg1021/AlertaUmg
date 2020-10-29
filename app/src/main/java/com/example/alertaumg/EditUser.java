@@ -65,6 +65,7 @@ public class EditUser extends AppCompatActivity {
             Glide.with(getApplicationContext())
                     .load(urlFoto)
                     .into((ImageView) imagenPerfil);
+            //Comentario
         }catch (Exception e){
 
         }
