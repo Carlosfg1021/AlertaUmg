@@ -1,5 +1,6 @@
 package com.example.alertaumg;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -46,6 +47,7 @@ public class Notificaciones extends Fragment {
     TipoAlerta alertaCardView;
     Usuario usuarioCardView;
     Indice indiceUsuario;
+    int verificador=1;
     private ArrayList<String>listaContadora = new ArrayList<>();
     public Notificaciones(int id_u){
         this.mi_id_publico = id_u;
@@ -72,6 +74,7 @@ public class Notificaciones extends Fragment {
                        RespuestaAPI<List<Alerta>> respuesta = response.body();
 
                        if ( respuesta.getCodigo() == 1 ){
+                           verificador=1;
                            List<Alerta> alerta = respuesta.getData();
                            if (alerta != null ){
 
@@ -90,6 +93,7 @@ public class Notificaciones extends Fragment {
                                Toast.makeText(view.getContext(), "Alertas encontradas", Toast.LENGTH_SHORT).show();
                            }
                        }else if ( respuesta.getCodigo() == 0 ){
+                           verificador=0;
                            Toast.makeText(view.getContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
                        }
                    }else{
@@ -116,6 +120,9 @@ public class Notificaciones extends Fragment {
         listanotificacion.add(new NotificacionU("Carlos Franco","Violencia de Genero"));
     }
 */
+
+
+
     public void mostraData(){
 
         recyclerViewNotificacion.setLayoutManager(new LinearLayoutManager(getContext()));

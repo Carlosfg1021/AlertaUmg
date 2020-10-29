@@ -56,6 +56,8 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
     MenuItem menuItemARapida, menuItemAEspecifica, menuItemPerfil, menuItemNotificacion, menuItemUsConf;
     int id_global_usuario;
 
+    int verificador=1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +112,13 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
                 return cargarFragmento(fragment);
             }
         });
+
+        if(comprobarAlertas()==1){
+            Toast.makeText(getApplicationContext(),"Hay alertas",Toast.LENGTH_SHORT).show();
+        }else if(comprobarAlertas()==0){
+            Toast.makeText(getApplicationContext(),"No hay alertas",Toast.LENGTH_SHORT).show();
+        }
+
 
         menuLateral = findViewById(R.id.navigationId);//Obtenemos el objeto del xml
 
@@ -282,5 +291,42 @@ public class Contenedor extends AppCompatActivity implements BottomNavigationVie
         return super.onOptionsItemSelected(item);
     }
 
+    private int comprobarAlertas(){
 
+        try{
+            Gson gson = new GsonBuilder().setLenient().create();
+            APIUtils.getAlertaService().obtenerAlertasNoVistas(getIntent().getExtras().getInt("id_usuario")).enqueue(new Callback<RespuestaAPI<List<Alerta>>>() {
+                @Override
+                public void onResponse(Call<RespuestaAPI<List<Alerta>>> call, Response<RespuestaAPI<List<Alerta>>> response) {
+                    if (response.isSuccessful()) {
+                        RespuestaAPI<List<Alerta>> respuesta = response.body();
+
+                        if ( respuesta.getCodigo() == 1 ){
+                            verificador=1;
+                            List<Alerta> alerta = respuesta.getData();
+                            if (alerta != null ){
+
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Alertas encontradas", Toast.LENGTH_SHORT).show();
+                            }
+                        }else if ( respuesta.getCodigo() == 0 ){
+                            verificador=0;
+                            Toast.makeText(getApplicationContext(), respuesta.getMensaje(), Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Error en el servidor.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<RespuestaAPI<List<Alerta>>> call, Throwable t) {
+
+                }
+            });
+
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+        return verificador;
+    }
 }
